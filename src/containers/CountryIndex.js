@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import WineCard from '../components/WineCard'
+import CountryCard from '../components/WineCard'
 import SearchBar from '../components/SearchBar'
 
-class WineIndex extends Component {
+class CountryIndex extends Component {
   render(){
     return (
       <div>
-        alll of ze wines
+        alll of ze countries
         <SearchBar />
-        <WineCard />
+        <CountryCard />
       </div>
     )
   }
 }
 
-export default WineIndex;
+export default CountryIndex;
