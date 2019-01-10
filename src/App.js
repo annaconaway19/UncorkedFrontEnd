@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import {connect} from 'react-redux'
+import { fetchingCountries } from './redux/actions'
 import NavBar from './components/NavBar'
 import CountryContainer from './containers/CountryContainer'
 import WineIndex from './containers/WineIndex'
@@ -9,6 +11,12 @@ import './App.css';
 
 
 class App extends Component {
+  componentDidMount(){
+    this.props.fetchingCountries()
+  }
+
+
+
   render() {
     return (
       <div>
@@ -25,4 +33,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchingCountries: () => {dispatch(fetchingCountries())}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

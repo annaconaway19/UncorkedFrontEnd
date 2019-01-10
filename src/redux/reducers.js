@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux'
 
-const loadingReducer = (state = false, action) => {
+const fetchingCountriesReducer = (state = [], action) => {
   switch (action.type) {
-    case 'LOADING':
-      return true;
+    case "FETCHED_COUNTRIES":
+      return [...state, action.countries]
     default:
       return state
   }
 }
 
 const reducer = combineReducers({
-  loading: loadingReducer
+  countries: fetchingCountriesReducer
 })
 
 export default reducer;
