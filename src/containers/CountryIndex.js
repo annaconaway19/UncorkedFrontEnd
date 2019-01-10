@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import CountryCard from '../components/WineCard'
+import CountryCard from '../components/CountryCard'
 import SearchBar from '../components/SearchBar'
 
-class CountryIndex extends Component {
-  render(){
+const CountryIndex = (props) => {
+  console.log(props.countries)
+
     return (
-      <div>
-        alll of ze countries
+      <div className="CountryIndex">
+        <h1>alll of ze countries</h1>
         <SearchBar />
-        <CountryCard />
+        {props.countries.map(country => <CountryCard key={country.id} country={country} /> )}
       </div>
     )
   }
-}
 
 const mapStateToProps = state => {
   return {

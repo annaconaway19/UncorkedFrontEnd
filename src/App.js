@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { fetchingCountries } from './redux/actions'
 import NavBar from './components/NavBar'
@@ -20,13 +20,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <Switch>
-          <Route exact path='/uncorked/countries/:name' component={CountryContainer} />
-          <Route exact path='/uncorked/countries' component={CountryIndex} />
-          <Route exact path='/uncorked/cellar' component={WineIndex} />
-          <Route exact path='/uncorked/wines/:id' component={WineDetails} />
-        </Switch>
+
+        <BrowserRouter>
+          <Fragment>
+            <NavBar />
+            <Switch>
+              <Route exact path='/uncorked/countries/:name' component={CountryContainer} />
+              <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
+              <Route exact path='/uncorked/cellar' component={WineIndex} />
+              <Route exact path='/uncorked/wines/:id' component={WineDetails} />
+            </Switch>
+          </Fragment>
+        </BrowserRouter>
       </div>
     );
   }

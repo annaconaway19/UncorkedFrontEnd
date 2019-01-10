@@ -36,11 +36,18 @@
 
 /*************/
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* CountryIndex */
+
+.CountryIndex {
+  text-align: center;
+  display: grid;
+}
+
+/*************/
+
+/* CountryIndex */
+
+.WineIndex {
+  text-align: center;
+  display: grid;
 }

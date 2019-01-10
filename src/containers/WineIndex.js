@@ -5,8 +5,8 @@ import SearchBar from '../components/SearchBar'
 class WineIndex extends Component {
   render(){
     return (
-      <div>
-        alll of ze wines
+      <div className="WineIndex">
+        <h1>alll of ze wines</h1>
         <SearchBar />
         <WineCard />
       </div>
