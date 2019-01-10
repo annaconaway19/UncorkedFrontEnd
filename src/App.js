@@ -15,8 +15,6 @@ class App extends Component {
     this.props.fetchingCountries()
   }
 
-
-
   render() {
     return (
       <div>
