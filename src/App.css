@@ -1,26 +1,40 @@
-.App {
+/* NAV BAR STYLING  */
+
+.nav {
+  background-color: #B398A4;
+  overflow: hidden;
+}
+
+.nav>.logo{
+  float: left;
+  color: #780738;
   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.nav>.link {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.nav>.link:hover {
+  background-color: #780738;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav>.logo:hover {
+  background-color: #780738;
+  color: white;
 }
+
+/*************/
 
 @keyframes App-logo-spin {
   from {

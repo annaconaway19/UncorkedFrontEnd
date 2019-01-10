@@ -20,7 +20,6 @@ class App extends Component {
   render() {
     return (
       <div>
-      this is my app - uncorked
         <NavBar />
         <Switch>
           <Route exact path='/uncorked/countries/:name' component={CountryContainer} />
