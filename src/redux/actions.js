@@ -30,6 +30,9 @@ const fetchSingleWine = (wineId) => {
     .then(data => dispatch(fetchedSingleWine(data.wine)))
   }
 }
-// const fetchingCountries = () => ({type: "FETCHING_COUNTRIES"})
 
-export { fetchingCountries, fetchingWines, fetchSingleWine }
+const changeSearchText = (value) => {
+  return { type: "CHANGE_SEARCH_TEXT", value }
+}
+
+export { fetchingCountries, fetchingWines, fetchSingleWine, changeSearchText }

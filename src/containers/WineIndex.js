@@ -28,7 +28,9 @@ class WineIndex extends Component {
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines
+    wines: state.wines.filter(
+      w => w.name.toLowerCase().includes(state.searchText.toLowerCase())
+    )
   }
 }
 

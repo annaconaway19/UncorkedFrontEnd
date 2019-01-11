@@ -21,7 +21,9 @@ const CountryIndex = (props) => {
 
 const mapStateToProps = state => {
   return {
-     countries: state.countries
+     countries: state.countries.filter(
+       c => c.name.toLowerCase().includes(state.searchText.toLowerCase())
+     )
   }
 }
 
