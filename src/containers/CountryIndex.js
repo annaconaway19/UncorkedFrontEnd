@@ -7,10 +7,14 @@ const CountryIndex = (props) => {
   console.log(props.countries)
 
     return (
-      <div className="CountryIndex">
-        <h1>alll of ze countries</h1>
-        <SearchBar />
-        {props.countries.map(country => <CountryCard key={country.id} country={country} /> )}
+      <div>
+        <div className="header">
+          <h1>alll of ze countries</h1>
+          <SearchBar />
+        </div>
+        <div className="CountryIndex">
+          {props.countries.map(country => <CountryCard key={country.id} country={country} /> )}
+        </div>
       </div>
     )
   }

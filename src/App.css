@@ -38,11 +38,25 @@
 
 /* CountryIndex */
 
+.header {
+  text-align: center;
+}
+
+.searchbar {
+    width: 30%;
+    height: 30px;
+    margin-bottom: 17px;
+}
+
 .CountryIndex {
   text-align: center;
   display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
 }
 
+.CountryCard {
+  grid-column: auto;
+}
 /*************/
 
 /* WineIndex */
@@ -50,9 +64,15 @@
 .WineIndex {
   text-align: center;
   display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+
 }
 
 .wine-image {
   height: 150px;
   width: 150px;
+}
+
+.wine-card {
+  grid-column: auto;
 }

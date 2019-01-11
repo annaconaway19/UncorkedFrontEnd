@@ -11,12 +11,19 @@ class WineIndex extends Component {
 
   render(){
     return (
-      <div className="WineIndex">
-        <h1>alll of ze wines</h1>
-        <SearchBar />
+      <div>
+        <div className="header">
+          <h1>alll of ze wines</h1>
+          <SearchBar />
+        </div>  
+        <div className="WineIndex">
+          {this.props.wines.wines ? this.props.wines.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
+        </div>
 
-        {this.props.wines.wines ? this.props.wines.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
+        <button>Next Page</button>
+        <button>Previous Page</button>
       </div>
+
     )
   }
 }
