@@ -1,8 +1,12 @@
 import React from 'react'
 
-const WineCard = () => {
+const WineCard = (props) => {
   return (
-    <div>wine card</div>
+    <div>
+      <img alt="wine" className="wine-image" src="http://www.tudodesenhos.com/uploads/images/8164/aperitivos-e-vinho.jpg" />
+      <h3>{props.wine.name}</h3>
+      <p>{props.wine.country.name}</p>
+    </div>
   )
 }
 
