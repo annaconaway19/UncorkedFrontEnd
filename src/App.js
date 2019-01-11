@@ -10,23 +10,11 @@ import CountryIndex from './containers/CountryIndex'
 import './App.css';
 
 
-
 class App extends Component {
   componentDidMount(){
     this.props.fetchingCountries()
     this.props.fetchingWines()
   }
-
-  // renderWineDetail = (routerProps) => {
-  //   if (this.props.wines) {
-  //     console.log("yeah");
-  //     return <WineDetails wine={this.props.wines.find(w => w.id === parseInt(routerProps.match.params.id))} />
-  //   } else {
-  //     console.log('boi');
-  //     this.props.fetchSingleWine(routerProps.match.params.id)
-  //     return <WineDetails wine={this.props.wine} />
-  //   }
-  // }
 
 
   render() {
@@ -52,13 +40,12 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchingCountries: () => {dispatch(fetchingCountries())},
     fetchingWines: () => {dispatch(fetchingWines())},
-    fetchSingleWine: (wineId) => {dispatch(fetchSingleWine(wineId))}
   }
 }
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines,
+    wines: state.wines
   }
 }
 
