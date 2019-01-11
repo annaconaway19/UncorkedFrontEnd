@@ -17,6 +17,7 @@ const fetchingWines = () => {
     .then(data => dispatch(fetchedWines(data)))
   }
 }
+
 // const fetchingCountries = () => ({type: "FETCHING_COUNTRIES"})
 
 export { fetchingCountries, fetchingWines }

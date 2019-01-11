@@ -15,9 +15,9 @@ class WineIndex extends Component {
         <div className="header">
           <h1>alll of ze wines</h1>
           <SearchBar />
-        </div>  
+        </div>
         <div className="WineIndex">
-          {this.props.wines.wines ? this.props.wines.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
+          {this.props.wines ? this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
         </div>
 
         <button>Next Page</button>
@@ -30,7 +30,7 @@ class WineIndex extends Component {
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines
+    wines: state.wines.wines
   }
 }
 

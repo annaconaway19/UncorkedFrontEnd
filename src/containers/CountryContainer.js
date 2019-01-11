@@ -9,7 +9,7 @@ class CountryContainer extends Component {
       <div>
       CountryContainer
         <CountryDetails />
-        <WineScroll/>
+        
       </div>
     )
   }

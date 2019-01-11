@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const CountryCard = (props) => (
-      <div className="CountryCard">
-        <h3>{props.country.name}</h3>
+    <Link to={`/uncorked/countries/${props.country.name}`}>
+      <div className="card">
+        <h4>{props.country.name}</h4>
         <p>{props.country.bio}</p>
       </div>
+    </Link>  
   )
 
 export default CountryCard;
