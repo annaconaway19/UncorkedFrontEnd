@@ -5,9 +5,7 @@ import WineCard from '../components/WineCard'
 import SearchBar from '../components/SearchBar'
 
 class WineIndex extends Component {
-  componentDidMount(){
-    this.props.dispatch(fetchingWines())
-  }
+
 
   render(){
     return (
@@ -30,7 +28,7 @@ class WineIndex extends Component {
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines.wines
+    wines: state.wines
   }
 }
 

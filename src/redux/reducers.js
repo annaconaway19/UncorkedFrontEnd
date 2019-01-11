@@ -18,9 +18,19 @@ const fetchingWineReducer = (state = [], action) => {
   }
 }
 
+const fetchingSingleWineReducer = (state = null, action) => {
+  switch (action.type) {
+    case "FETCHED_ONE_WINE":
+      return action.wine
+      default:
+        return state
+    }
+  }
+
 const reducer = combineReducers({
   countries: fetchingCountriesReducer,
-  wines: fetchingWineReducer
+  wines: fetchingWineReducer,
+  wine: fetchingSingleWineReducer
 })
 
 export default reducer;

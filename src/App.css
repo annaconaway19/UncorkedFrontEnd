@@ -65,7 +65,10 @@
 .CountryIndex {
   text-align: center;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 18% 18% 18% 18%;
+  grid-column-gap: 25px;
+  grid-row-gap: 35px;
+  margin: auto;
 }
 
 

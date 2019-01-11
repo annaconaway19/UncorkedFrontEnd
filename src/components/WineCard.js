@@ -13,4 +13,5 @@ const WineCard = (props) => {
   )
 }
 
+
 export default WineCard;

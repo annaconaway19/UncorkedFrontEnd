@@ -10,14 +10,26 @@ const fetchingCountries = () => {
 const fetchedWines = (wines) => {
     return {type: "FETCHED_WINES", wines }
 }
+
 const fetchingWines = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/wines')
     .then(res => res.json())
-    .then(data => dispatch(fetchedWines(data)))
+    .then(data => dispatch(fetchedWines(data.wines)))
   }
 }
 
+const fetchedSingleWine = (wine) => {
+  return {type: "FETCHED_SINGLE_WINE", wine}
+}
+
+const fetchSingleWine = (wineId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/wines/${wineId}`)
+    .then(res => res.json())
+    .then(data => dispatch(fetchedSingleWine(data.wine)))
+  }
+}
 // const fetchingCountries = () => ({type: "FETCHING_COUNTRIES"})
 
-export { fetchingCountries, fetchingWines }
+export { fetchingCountries, fetchingWines, fetchSingleWine }
