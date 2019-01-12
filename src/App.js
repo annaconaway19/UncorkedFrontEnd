@@ -7,6 +7,7 @@ import CountryContainer from './containers/CountryContainer'
 import WineIndex from './containers/WineIndex'
 import WineDetails from './components/WineDetails'
 import CountryIndex from './containers/CountryIndex'
+import CountryDetails from './components/CountryDetails'
 import './App.css';
 
 
@@ -24,7 +25,7 @@ class App extends Component {
           <Fragment>
             <NavBar />
             <Switch>
-              <Route exact path='/uncorked/countries/:name' component={CountryContainer} />
+              <Route exact path='/uncorked/countries/:name' render={(props) => <CountryDetails country={this.props.countries.find(c => c.name === props.match.params.name)}/>} />
               <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
               <Route exact path='/uncorked/cellar' component={WineIndex} />
               <Route exact path='/uncorked/wines/:id' render={(props) => <WineDetails wine={this.props.wines.find(w => w.id === parseInt(props.match.params.id))} />} />
@@ -45,7 +46,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines
+    wines: state.wines,
+    countries: state.countries
   }
 }
 

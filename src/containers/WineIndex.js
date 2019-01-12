@@ -6,7 +6,6 @@ import SearchBar from '../components/SearchBar'
 
 class WineIndex extends Component {
 
-
   render(){
     return (
       <div>
