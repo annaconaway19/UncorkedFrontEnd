@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { fetchingCountries, fetchingWines, fetchSingleWine } from './redux/actions'
 import NavBar from './components/NavBar'
+import MapContainer from './containers/MapContainer'
 import CountryContainer from './containers/CountryContainer'
 import WineIndex from './containers/WineIndex'
 import WineDetails from './components/WineDetails'
@@ -25,6 +26,7 @@ class App extends Component {
           <Fragment>
             <NavBar />
             <Switch>
+              <Route exact path="/uncorked" component={MapContainer} />
               <Route exact path='/uncorked/countries/:name' render={(props) => <CountryDetails country={this.props.countries.find(c => c.name === props.match.params.name) }/>} />
               <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
               <Route exact path='/uncorked/cellar' component={WineIndex} />

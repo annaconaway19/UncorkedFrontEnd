@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './redux/store.js';
 
-
+const API_KEY = `${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}`
 ReactDOM.render(
 
   <BrowserRouter>
