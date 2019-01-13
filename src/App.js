@@ -40,14 +40,14 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     fetchingCountries: () => {dispatch(fetchingCountries())},
-    fetchingWines: () => {dispatch(fetchingWines())},
+    fetchingWines: () => {dispatch(fetchingWines())}
   }
 }
 
 const mapStateToProps = state => {
   return {
     wines: state.wines,
-    countries: state.countries
+    countries: state.countries,
   }
 }
 

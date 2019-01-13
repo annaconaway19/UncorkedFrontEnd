@@ -19,15 +19,14 @@ const fetchingWines = () => {
   }
 }
 
-const fetchedSingleWine = (wine) => {
-  return {type: "FETCHED_SINGLE_WINE", wine}
+const fetchedNotes = (notes) => {
+  return {type: 'FETCHED_NOTES', notes}
 }
-
-const fetchSingleWine = (wineId) => {
+const fetchingTastingNotes = () => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/wines/${wineId}`)
+    fetch('http://localhost:3001/tastingnotes')
     .then(res => res.json())
-    .then(data => dispatch(fetchedSingleWine(data.wine)))
+    .then(data => dispatch(fetchedNotes(data.tasting_notes)))
   }
 }
 
@@ -35,4 +34,4 @@ const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
 }
 
-export { fetchingCountries, fetchingWines, fetchSingleWine, changeSearchText }
+export { fetchingCountries, fetchingWines, fetchingTastingNotes, changeSearchText }

@@ -18,6 +18,15 @@ const fetchingWineReducer = (state = [], action) => {
   }
 }
 
+const fetchingNotesReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'FETCHED_NOTES':
+      return action.notes
+    default:
+      return state
+  }
+}
+
 const searchTextReducer = (state = "", action) => {
   switch (action.type) {
     case "CHANGE_SEARCH_TEXT":
@@ -30,6 +39,7 @@ const searchTextReducer = (state = "", action) => {
 const reducer = combineReducers({
   countries: fetchingCountriesReducer,
   wines: fetchingWineReducer,
+  tastingNotes: fetchingNotesReducer,
   searchText: searchTextReducer
 })
 
