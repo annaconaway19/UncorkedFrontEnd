@@ -18,7 +18,6 @@ class App extends Component {
     this.props.fetchingWines()
   }
 
-
   render() {
     return (
       <div>

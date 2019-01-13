@@ -21,34 +21,25 @@ class Map extends React.Component {
   componentDidMount(){
     const map = this.reactMap.getMap()
     map.on('load', () => {
-      map.addLayer(map, this.getCodes())
-      map.addControl(new MapboxGeocoder({accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}))
+      map.addControl(new MapboxGeocoder({accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}));
+
+      map.addLayer({
+        'id': 'countries',
+        'source': {
+          'type': 'vector',
+          'url': 'mapbox://annaconaway19.699x9qok'
+        },
+        'source-layer': 'ne_10m_admin_0_countries-9qifgq',
+        'type': 'fill',
+        'paint': {
+          'fill-color': '#780738', //color of highlighted countries
+          'fill-outline-color': '#F2F2F2'
+          }
+        });
+        map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(this.props.codes()))
     })
   }
 
-  getCodes = () => {
-    let codes = []
-    this.props.countries.forEach(country => {
-      codes.push(country.alphacode)
-    })
-  return codes
-}
-
-  addLayer = (map, alphaCodes) => {
-    map.addLayer({
-      'id': 'countries',
-      'source': {
-        'type': 'vector',
-        'url': 'annaconaway19.2v8oxc2m'
-      },
-      'source-layer': 'ne_50m_admin_0_countries-3zjox8',
-      'type': 'fill',
-      'paint': {
-        'fill-color': '#780738', //color of highlighted countries
-        'fill-outline-color': '#F2F2F2' //white outline between countries
-        }
-      })
-  }
 
   render(){
     return(
@@ -67,10 +58,6 @@ class Map extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    countries: state.countries
-  }
-}
 
-export default connect(mapStateToProps)(Map);
+
+export default Map;
