@@ -9,8 +9,11 @@ class WineDetails extends Component {
   }
 
   randomNote = () => {
-      let noteObj = this.props.tastingNotes[Math.floor(Math.random() * this.props.tastingNotes.length)]
-      console.log(noteObj)
+    let notes = []
+    this.props.tastingNotes.forEach(note => {
+      notes.push(note.name)
+    })
+    return notes[Math.floor(Math.random() * notes.length)]
   }
 
   render() {
