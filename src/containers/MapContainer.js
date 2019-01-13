@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-console.log(process.env.REACT_APP_MAPBOX_ACCESS_TOKEN)
+import Map from '../components/Map'
 
 class MapContainer extends Component {
+
   render(){
     return(
-      <div>map</div>
+      <div>
+        <Map />
+      </div>
     )
   }
 }
