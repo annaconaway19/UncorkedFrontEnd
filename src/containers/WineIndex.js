@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchingWines } from '../redux/actions'
 import WineCard from '../components/WineCard'
 import SearchBar from '../components/SearchBar'
 
