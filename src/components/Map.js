@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
+import { Icon } from 'semantic-ui-react'
 import MapboxGeocoder from 'mapbox-gl-geocoder';
 import { connect } from 'react-redux'
 
@@ -40,7 +41,6 @@ class Map extends React.Component {
     })
   }
 
-
   render(){
     return(
       <React.Fragment>
@@ -52,12 +52,19 @@ class Map extends React.Component {
           onViewportChange={(viewport) => this.setState({viewport})}
           minZoom={1.19}
           >
+          {this.props.countries.map(c => {
+            return <Marker key={c.id} longitude={20} latitude={77}><Icon size="large" name="star" color="teal"/></Marker>
+          })}
         </ReactMapGL>
       </React.Fragment>
     )
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    countries: state.countries
+  }
+}
 
-
-export default Map;
+export default connect(mapStateToProps)(Map);
