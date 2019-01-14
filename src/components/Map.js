@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
 import { Icon } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 import MapboxGeocoder from 'mapbox-gl-geocoder';
 import { connect } from 'react-redux'
 
@@ -52,7 +53,7 @@ class Map extends React.Component {
     this.setState({
       popup: {
         latitude: lat,
-        longitude: long
+        longitude: long,
       }
     })
   }
@@ -71,12 +72,19 @@ class Map extends React.Component {
         closeButton={false}
       >
       <div id="popup-box" onClick={this.closePopup}>
-        <div>Popup</div>
+        <div>
+        Popup
+          <div>{this.showCountryInfo()}</div>
+        </div>
       </div>
       </Popup>
     )
   }
 
+  showCountryInfo = () => {
+    let countryName = this.props.countries.find(c => (c.latitude == this.state.popup.latitude) && (c.longitude == this.state.popup.longitude)).name
+    return <Link to={`/uncorked/countries/${countryName}`}>Find Wine in {countryName}</Link>
+  }
 
   render(){
     return(
