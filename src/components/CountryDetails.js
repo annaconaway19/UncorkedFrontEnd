@@ -16,7 +16,7 @@ const CountryDetails = (props) => {
           <h2>Wines from {props.country.name}:</h2>
           {props.wines.slice(0,5).map(w =>
             <ul>
-              <Link to={`/uncorked/wines/${w.id}`}>
+              <Link key={w.id} to={`/uncorked/wines/${w.id}`}>
                 <li>{w.name}</li>
               </Link>
             </ul>

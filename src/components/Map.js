@@ -15,7 +15,7 @@ class Map extends React.Component {
       height: "100vh",
       latitude: 44.5739,
       longitude: 7.7952,
-      zoom: 1.19
+      zoom: 2.0
     }
   }}
 
@@ -23,7 +23,6 @@ class Map extends React.Component {
     const map = this.reactMap.getMap()
     map.on('load', () => {
       map.addControl(new MapboxGeocoder({accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}));
-
       map.addLayer({
         'id': 'countries',
         'source': {
@@ -34,10 +33,18 @@ class Map extends React.Component {
         'type': 'fill',
         'paint': {
           'fill-color': '#780738', //color of highlighted countries
-          'fill-outline-color': '#F2F2F2'
+          'fill-outline-color': '#F2F2F2',
+          'fill-opacity': 0.5
           }
         });
         map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(this.props.codes()))
+
+    })
+  }
+
+  showPins = () => {
+    return this.props.countries.forEach(c => {
+      return <Marker key={c.id} latitude={parseFloat(c.latitude)} longitude={parseFloat(c.longitude)}><div>You are here</div></Marker>
     })
   }
 
@@ -52,9 +59,7 @@ class Map extends React.Component {
           onViewportChange={(viewport) => this.setState({viewport})}
           minZoom={1.19}
           >
-          {this.props.countries.map(c => {
-            return <Marker key={c.id} longitude={20} latitude={77}><Icon size="large" name="star" color="teal"/></Marker>
-          })}
+          {this.props.countries ? this.showPins() : null }
         </ReactMapGL>
       </React.Fragment>
     )
