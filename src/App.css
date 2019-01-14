@@ -1,3 +1,6 @@
+h2, h3, h4, p {
+  font-family: 'News Cycle', sans-serif;
+}
 /* NAV BAR STYLING  */
 
 .nav {
@@ -96,7 +99,7 @@
   grid-column-gap: 8%;
   grid-row-gap: 3%;
   margin: auto;
-  padding: 2% 5% 5% 5%;
+  padding: 2% 5% 15% 5%;
 }
 
 .wine-image {
@@ -104,10 +107,13 @@
   width: 150px;
 }
 
+.buttons {
+  margin-left: 38%;
+}
 
 button {
-    width: 5%;
-    padding: 6px;
-    margin: 30px 10px 30px;
-    grid-column: auto;
+  width: 14%;
+  padding: 11px;
+  font-size: 14px;
+  margin: 0 0 43px 39px;
 }

@@ -16,8 +16,10 @@ class WineIndex extends Component {
           {this.props.wines ? this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
         </div>
 
-        <button>Next Page</button>
-        <button>Previous Page</button>
+        <div className="buttons">
+          <button >Next Page</button>
+          <button>Previous Page</button>
+        </div>
       </div>
 
     )

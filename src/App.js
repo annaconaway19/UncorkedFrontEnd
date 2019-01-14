@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { fetchingCountries, fetchingWines, fetchSingleWine } from './redux/actions'
+import 'semantic-ui-css/semantic.min.css'
 import NavBar from './components/NavBar'
 import MapContainer from './containers/MapContainer'
 import CountryContainer from './containers/CountryContainer'

@@ -23,6 +23,7 @@ class Map extends React.Component {
     const map = this.reactMap.getMap()
     map.on('load', () => {
       map.addControl(new MapboxGeocoder({accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}));
+
       map.addLayer({
         'id': 'countries',
         'source': {
@@ -38,16 +39,14 @@ class Map extends React.Component {
           }
         });
         map.setFilter('countries', ['in', 'ADM0_A3_IS'].concat(this.props.codes()))
-
     })
   }
 
   showPins = () => {
-    return this.props.countries.forEach(c => {
-      return <Marker key={c.id} latitude={parseFloat(c.latitude)} longitude={parseFloat(c.longitude)}><div>You are here</div></Marker>
+    return this.props.countries.map(c => {
+      return <Marker key={c.id} latitude={parseFloat(c.latitude)} longitude={parseFloat(c.longitude)} offsetLeft={-20} offsetTop={-10}><Icon size="large" name="map marker alternate" color="teal" /></Marker>
     })
   }
-
   render(){
     return(
       <React.Fragment>
@@ -59,7 +58,7 @@ class Map extends React.Component {
           onViewportChange={(viewport) => this.setState({viewport})}
           minZoom={1.19}
           >
-          {this.props.countries ? this.showPins() : null }
+          {this.showPins()}
         </ReactMapGL>
       </React.Fragment>
     )
