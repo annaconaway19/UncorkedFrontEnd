@@ -16,14 +16,14 @@ class Map extends React.Component {
       latitude: 44.5739,
       longitude: 7.7952,
       zoom: 2.0
-    }
+    },
+    popup: null
   }}
 
   componentDidMount(){
     const map = this.reactMap.getMap()
     map.on('load', () => {
       map.addControl(new MapboxGeocoder({accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}));
-
       map.addLayer({
         'id': 'countries',
         'source': {
@@ -44,9 +44,40 @@ class Map extends React.Component {
 
   showPins = () => {
     return this.props.countries.map(c => {
-      return <Marker key={c.id} latitude={parseFloat(c.latitude)} longitude={parseFloat(c.longitude)} offsetLeft={-20} offsetTop={-10}><Icon size="large" name="map marker alternate" color="teal" /></Marker>
+      return <Marker key={c.id} latitude={parseFloat(c.latitude)} longitude={parseFloat(c.longitude)} offsetLeft={-20} offsetTop={-10}><Icon size="large" name="map marker alternate" color="teal" onClick={(event) => this.handlePinClick(event, parseFloat(c.latitude), parseFloat(c.longitude))}/></Marker>
     })
   }
+
+  handlePinClick = (event, lat, long) => {
+    this.setState({
+      popup: {
+        latitude: lat,
+        longitude: long
+      }
+    })
+  }
+
+  closePopup = () => {
+    this.setState({ popup: null })
+  }
+
+  showPopup = () => {
+    return this.state.popup && (
+      <Popup tipSize={10}
+        anchor="bottom"
+        longitude={this.state.popup.longitude}
+        latitude={this.state.popup.latitude}
+        offsetTop={-20}
+        closeButton={false}
+      >
+      <div id="popup-box" onClick={this.closePopup}>
+        <div>Popup</div>
+      </div>
+      </Popup>
+    )
+  }
+
+
   render(){
     return(
       <React.Fragment>
@@ -59,6 +90,7 @@ class Map extends React.Component {
           minZoom={1.19}
           >
           {this.showPins()}
+          {this.showPopup()}
         </ReactMapGL>
       </React.Fragment>
     )
