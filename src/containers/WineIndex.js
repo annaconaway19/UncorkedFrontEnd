@@ -9,7 +9,7 @@ class WineIndex extends Component {
     return (
       <div>
         <div className="header">
-          Welcome to the Wine Cellar
+          <div className="heading">Welcome to the Wine Cellar</div>
           <SearchBar />
         </div>
         <div className="WineIndex">

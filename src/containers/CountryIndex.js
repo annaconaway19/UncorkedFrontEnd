@@ -9,7 +9,7 @@ const CountryIndex = (props) => {
     return (
       <div>
         <div className="header">
-          Explore a World of Wine
+          <div className="heading">Explore a World of Wine</div>
           <SearchBar />
         </div>
         <div className="CountryIndex">

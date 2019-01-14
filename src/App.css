@@ -49,6 +49,10 @@ h2, h3, h4, p {
   margin-top: 13px;
 }
 
+.heading {
+  padding: 24px;
+}
+
 .country-image {
   height: 197px;
   width: 261px;
@@ -116,4 +120,21 @@ button {
   padding: 11px;
   font-size: 14px;
   margin: 0 0 43px 39px;
+}
+
+/* ************ */
+
+/* Wine Show Page */
+
+.WineDetails {
+  background-image: url('https://images.unsplash.com/photo-1543418219-44e30b057fea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80');
+  padding: 30px;
+}
+
+.wine-image {
+  border-radius: 50%;
+}
+
+.spacing {
+  padding: 250px;
 }
