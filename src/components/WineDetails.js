@@ -18,30 +18,35 @@ class WineDetails extends Component {
 
   render() {
     return (
-      <div>
         <div className="WineDetails">
         {this.props.wine ? (
           <React.Fragment>
               <div className="header">Swirl. Sip. Savor.</div>
               <h3>Highlights of: {this.props.wine.name}</h3>
-              <img className="wine-image" alt="wine" src="https://cdn.pixabay.com/photo/2016/10/22/21/44/white-wine-1761771_960_720.jpg"/>
-              <h3>Varietal: {this.props.wine.varietal.name}</h3>
-              <h3>Tasting Notes</h3>
-              <ul>
-                  <li>{this.randomNote()}</li>
-                  <li>{this.randomNote()}</li>
-                  <li>{this.randomNote()}</li>
-                  <li>{this.randomNote()}</li>
-                  <li>{this.randomNote()}</li>
-              </ul>
-              <h3>Points: {this.props.wine.points}</h3>
-              <h3>Price: {this.props.wine.price}</h3>
+              <img className="wine-image" alt="wine" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
+
+              <div className="wine-info">
+                <h3>Varietal: {this.props.wine.varietal.name}</h3>
+                <h3>Points: {this.props.wine.points}</h3>
+                <h3>Price: {this.props.wine.price}</h3>
+              </div>
+
+              <div className="tasting-notes">
+              Tasting Notes
+                <ul>
+                    <li>{this.randomNote()}</li>
+                    <li>{this.randomNote()}</li>
+                    <li>{this.randomNote()}</li>
+                    <li>{this.randomNote()}</li>
+                    <li>{this.randomNote()}</li>
+                </ul>
+              </div>  
+
           </React.Fragment>
         ) : ("loading...")}
         <div className="spacing"></div>
-        </div>
-
       </div>
+
     )
   }
   }

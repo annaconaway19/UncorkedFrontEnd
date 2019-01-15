@@ -6,7 +6,7 @@ import WineCard from './WineCard'
 const CountryDetails = (props) => {
   console.log(props)
   return (
-    <div>
+    <div className="CountryDetails">
       {props.country ? (
         <React.Fragment>
           <h2>More About {props.country.name}</h2>
@@ -24,7 +24,7 @@ const CountryDetails = (props) => {
         </React.Fragment>
 
       ) : ("loading...") }
-
+      <div className="spacing"></div>
     </div>
   )
 }

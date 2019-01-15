@@ -91,6 +91,13 @@ h2, h3, h4, p {
 
 }
 
+/*************/
+
+/* Country Show Page */
+.CountryDetails {
+  background-image: url('https://images.unsplash.com/photo-1537471496460-53346c1ad0e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2253&q=80');
+  padding: 30px;
+}
 
 /*************/
 
@@ -132,7 +139,8 @@ button {
 }
 
 .wine-image {
-  border-radius: 50%;
+  border-radius: 38%;
+  height: 205px;
 }
 
 .spacing {
