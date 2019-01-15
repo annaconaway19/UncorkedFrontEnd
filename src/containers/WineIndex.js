@@ -9,7 +9,13 @@ class WineIndex extends Component {
   handleNextClick = () => {
     let pageNum = this.props.currentPage.links.next.split("=")[1] - 1
     console.log(pageNum)
-    this.props.fetchingWines(pageNum)
+    this.props.fetchingWines(pageNum + 1)
+  }
+
+  handlePreviousClick = () => {
+    let pageNum = this.props.currentPage.links.next.split("=")[1] - 1
+    console.log(pageNum)
+    this.props.fetchingWines(pageNum - 1)
   }
 
   render(){
@@ -24,7 +30,7 @@ class WineIndex extends Component {
         </div>
 
         <div className="buttons">
-          <button>Previous Page</button>
+          <button onClick={() => this.handlePreviousClick()}>Previous Page</button>
           <button onClick={() => this.handleNextClick()}>Next Page</button>
         </div>
       </div>
@@ -44,7 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchingWines: (num) => {dispatch(fetchingWines(num + 1))}
+    fetchingWines: (num) => {dispatch(fetchingWines(num))}
   }
 }
 
