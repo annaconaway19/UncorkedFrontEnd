@@ -4,7 +4,6 @@ import CountryCard from '../components/CountryCard'
 import SearchBar from '../components/SearchBar'
 
 const CountryIndex = (props) => {
-  console.log(props.countries)
 
     return (
       <div>
