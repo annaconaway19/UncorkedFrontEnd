@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { fetchingWines } from '../redux/actions'
 import WineCard from '../components/WineCard'
 import SearchBar from '../components/SearchBar'
 
 class WineIndex extends Component {
+
+  handleNextClick = () => {
+    let pageNum = this.props.currentPage.links.next.split("=")[1] - 1
+    console.log(pageNum)
+    this.props.fetchingWines(pageNum)
+  }
 
   render(){
     return (
@@ -17,8 +24,8 @@ class WineIndex extends Component {
         </div>
 
         <div className="buttons">
-          <button >Next Page</button>
           <button>Previous Page</button>
+          <button onClick={() => this.handleNextClick()}>Next Page</button>
         </div>
       </div>
 
@@ -30,10 +37,16 @@ const mapStateToProps = state => {
   return {
     wines: state.wines.filter(
       w => w.name.toLowerCase().includes(state.searchText.toLowerCase())
-    )
+    ),
+    currentPage: state.page.pagination
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchingWines: (num) => {dispatch(fetchingWines(num + 1))}
+  }
+}
 
-export default connect(mapStateToProps)(WineIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(WineIndex);
 //

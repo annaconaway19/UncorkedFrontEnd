@@ -73,7 +73,7 @@ class Map extends React.Component {
       >
       <div id="popup-box" onClick={this.closePopup}>
         <div>
-        Popup
+        It's time for a Grape Escape!
           <div>{this.showCountryInfo()}</div>
         </div>
       </div>

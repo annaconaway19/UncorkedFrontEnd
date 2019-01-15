@@ -11,13 +11,21 @@ const fetchedWines = (wines) => {
     return {type: "FETCHED_WINES", wines }
 }
 
-const fetchingWines = () => {
+const fetchedPageNums = (page) => {
+  return { type: "FETCHED_PAGE", page }
+}
+
+const fetchingWines = (pageNum) => {
   return (dispatch) => {
-    fetch('http://localhost:3001/wines')
+    fetch(`http://localhost:3001/wines?page=${pageNum}`)
     .then(res => res.json())
-    .then(data => dispatch(fetchedWines(data.wines)))
+    .then(data => {
+      dispatch(fetchedWines(data.wines))
+      dispatch(fetchedPageNums(data.meta))
+    })
   }
 }
+
 
 const fetchedNotes = (notes) => {
   return {type: 'FETCHED_NOTES', notes}
