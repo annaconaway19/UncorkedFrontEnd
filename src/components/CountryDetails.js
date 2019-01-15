@@ -9,7 +9,8 @@ const CountryDetails = (props) => {
     <div className="CountryDetails">
       {props.country ? (
         <React.Fragment>
-          <h2>More About {props.country.name}</h2>
+          <div className="header">Taste The Terroir</div>
+          <h2 className="headline">More About {props.country.name}</h2>
           <div className="imagebio">
             <img alt="country" src={props.country.img_url} className="country-image"/>
             <p className='bio'>{props.country.bio}</p>

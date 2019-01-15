@@ -113,8 +113,10 @@ li {
 
 .imagebio {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 20% 60%;
+  margin-left: 20%;
 }
+
 .bio {
   font-size: 21px;
   text-shadow: 1px 1px black;
