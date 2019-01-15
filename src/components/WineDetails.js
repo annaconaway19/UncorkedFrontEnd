@@ -22,25 +22,29 @@ class WineDetails extends Component {
         {this.props.wine ? (
           <React.Fragment>
               <div className="header">Swirl. Sip. Savor.</div>
-              <h3>Highlights of: {this.props.wine.name}</h3>
-              <img className="wine-image" alt="wine" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
+              <h2 className="headline">Highlights of {this.props.wine.name}</h2>
 
-              <div className="wine-info">
-                <h3>Varietal: {this.props.wine.varietal.name}</h3>
-                <h3>Points: {this.props.wine.points}</h3>
-                <h3>Price: {this.props.wine.price}</h3>
+              <div className="top-wine-div">
+                <img className="wine-image" alt="wine" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
+                <div className="tasting-notes">
+                  <h2>Tasting Notes</h2>
+                  <ul>
+                      <li>{this.randomNote()}</li>
+                      <li>{this.randomNote()}</li>
+                      <li>{this.randomNote()}</li>
+                      <li>{this.randomNote()}</li>
+                      <li>{this.randomNote()}</li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="tasting-notes">
-              Tasting Notes
-                <ul>
-                    <li>{this.randomNote()}</li>
-                    <li>{this.randomNote()}</li>
-                    <li>{this.randomNote()}</li>
-                    <li>{this.randomNote()}</li>
-                    <li>{this.randomNote()}</li>
-                </ul>
-              </div>  
+              <div className="wine-info">
+                <h2>Varietal: {this.props.wine.varietal.name}</h2>
+                <h2>Points: {this.props.wine.points}</h2>
+                <h2>Price: {this.props.wine.price}</h2>
+              </div>
+
+
 
           </React.Fragment>
         ) : ("loading...")}

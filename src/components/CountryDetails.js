@@ -10,9 +10,10 @@ const CountryDetails = (props) => {
       {props.country ? (
         <React.Fragment>
           <h2>More About {props.country.name}</h2>
-          <img alt="country" src={props.country.img_url} className="country-image"/>
-          <p>{props.country.bio}</p>
-
+          <div className="imagebio">
+            <img alt="country" src={props.country.img_url} className="country-image"/>
+            <p className='bio'>{props.country.bio}</p>
+          </div>
           <h2>Wines from {props.country.name}:</h2>
           {props.wines.slice(0,5).map(w =>
             <ul>
@@ -24,7 +25,7 @@ const CountryDetails = (props) => {
         </React.Fragment>
 
       ) : ("loading...") }
-      <div className="spacing"></div>
+      <div className="country-spacing"></div>
     </div>
   )
 }

@@ -83,7 +83,7 @@ class Map extends React.Component {
 
   showCountryInfo = () => {
     let countryName = this.props.countries.find(c => (c.latitude == this.state.popup.latitude) && (c.longitude == this.state.popup.longitude)).name
-    return <Link to={`/uncorked/countries/${countryName}`}>Find Wine in {countryName}</Link>
+    return <Link to={`/uncorked/countries/${countryName}`}>Find Wine from {countryName}</Link>
   }
 
   render(){
