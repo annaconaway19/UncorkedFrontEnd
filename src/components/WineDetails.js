@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { fetchingTastingNotes } from '../redux/actions'
+import { fetchingTastingNotes, fetchingSingleWine } from '../redux/actions'
 
 class WineDetails extends Component {
 
   componentDidMount(){
     this.props.fetchingTastingNotes()
+    this.props.fetchingSingleWine(this.props.match.params.id)
   }
 
   randomNote = () => {
@@ -19,7 +20,7 @@ class WineDetails extends Component {
   render() {
     return (
         <div className="WineDetails">
-        {this.props.wine ? (
+        {this.props.wine  ? (
           <React.Fragment>
               <div className="header">Swirl. Sip. Savor.</div>
               <h2 className="headline">Highlights of {this.props.wine.name}</h2>
@@ -57,13 +58,16 @@ class WineDetails extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchingTastingNotes: () => {dispatch(fetchingTastingNotes())}
+    fetchingTastingNotes: () => {dispatch(fetchingTastingNotes())},
+    fetchingSingleWine: (wineId) => {dispatch(fetchingSingleWine(wineId))}
+
   }
 }
 
 const mapStateToProps = state => {
   return {
-    tastingNotes: state.tastingNotes
+    tastingNotes: state.tastingNotes,
+    wine: state.singleWine
   }
 }
 

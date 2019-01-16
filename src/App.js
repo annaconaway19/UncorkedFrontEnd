@@ -30,7 +30,7 @@ class App extends Component {
               <Route exact path='/uncorked/countries/:name' render={(props) => <CountryDetails country={this.props.countries.find(c => c.name === props.match.params.name) }/>} />
               <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
               <Route exact path='/uncorked/cellar' component={WineIndex} />
-              <Route exact path='/uncorked/wines/:id' render={(props) => <WineDetails wine={this.props.wines.find(w => w.id === parseInt(props.match.params.id))} />} />
+              <Route exact path='/uncorked/wines/:id' component={WineDetails} />
             </Switch>
           </Fragment>
         </BrowserRouter>
@@ -38,7 +38,8 @@ class App extends Component {
     );
   }
 }
-
+//
+// (props) => <WineDetails wine={this.props.wines.find(w => w.id === parseInt(props.match.params.id))} />}
 const mapDispatchToProps = dispatch => {
   return {
     fetchingCountries: () => {dispatch(fetchingCountries())},
