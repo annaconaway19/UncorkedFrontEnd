@@ -12,7 +12,15 @@ class CountryDetails extends React.Component {
   }
 
   moreWine = () => {
+  if (this.props.country.wines.length > this.state.currentIndex + 5) {
     this.setState({ currentIndex: this.state.currentIndex + 5})
+    }
+  }
+
+  goBack = () => {
+  if (this.state.currentIndex >= 5) {
+    this.setState({ currentIndex: this.state.currentIndex - 5})
+    }
   }
 
   render() {
@@ -34,7 +42,8 @@ class CountryDetails extends React.Component {
                 </Link>
               </ul>
             )}
-            <button onClick={() => this.moreWine()}>See More Wine</button>
+            <button onClick={() => this.goBack()}>Go Back</button>
+            <button onClick={() => this.moreWine()}>See More</button>
           </React.Fragment>
 
         ) : ("loading...") }
@@ -50,11 +59,5 @@ const mapStateToProps = state => {
     wines: state.wines
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchingSingleWine: (wineId) => {dispatchfetchingSingleWine(wineId)
-//   }
-// }
 
 export default connect(mapStateToProps)(CountryDetails);
