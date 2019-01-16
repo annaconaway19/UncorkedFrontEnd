@@ -16,9 +16,9 @@ const CountryDetails = (props) => {
             <p className='bio'>{props.country.bio}</p>
           </div>
           <h2>Wines from {props.country.name}:</h2>
-          {props.wines.slice(0,5).map(w =>
-            <ul>
-              <Link key={w.id} to={`/uncorked/wines/${w.id}`}>
+          {props.country.wines.slice(0,5).map(w =>
+            <ul key={w.id}>
+              <Link  to={`/uncorked/wines/${w.id}`}>
                 <li>{w.name}</li>
               </Link>
             </ul>
