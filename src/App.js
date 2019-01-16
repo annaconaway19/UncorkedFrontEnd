@@ -38,8 +38,7 @@ class App extends Component {
     );
   }
 }
-//
-// (props) => <WineDetails wine={this.props.wines.find(w => w.id === parseInt(props.match.params.id))} />}
+
 const mapDispatchToProps = dispatch => {
   return {
     fetchingCountries: () => {dispatch(fetchingCountries())},

@@ -45,8 +45,6 @@ class WineDetails extends Component {
                 <h2>Price: {this.props.wine.price}</h2>
               </div>
 
-
-
           </React.Fragment>
         ) : ("loading...")}
         <div className="spacing"></div>
@@ -60,7 +58,6 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchingTastingNotes: () => {dispatch(fetchingTastingNotes())},
     fetchingSingleWine: (wineId) => {dispatch(fetchingSingleWine(wineId))}
-
   }
 }
 
