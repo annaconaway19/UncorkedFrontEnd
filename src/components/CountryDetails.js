@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import WineCard from './WineCard'
+import { fetchingCountry } from '../redux/actions'
 
 class CountryDetails extends React.Component {
   constructor(){
@@ -9,6 +10,11 @@ class CountryDetails extends React.Component {
     this.state = {
       currentIndex: 0
     }
+  }
+
+  componentDidMount(){
+    console.log(this.props)
+    this.props.fetchingCountry(this.props.match.params.id)
   }
 
   moreWine = () => {
@@ -56,8 +62,15 @@ class CountryDetails extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines
+    wines: state.wines,
+    country: state.country
   }
 }
 
-export default connect(mapStateToProps)(CountryDetails);
+const mapDispatchToProps = dispatch => {
+    return {
+      fetchingCountry: (countryName) => {dispatch(fetchingCountry(countryName))}
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountryDetails);

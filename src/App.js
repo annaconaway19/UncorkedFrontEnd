@@ -27,7 +27,7 @@ class App extends Component {
             <NavBar />
             <Switch>
               <Route exact path="/uncorked" component={MapContainer} />
-              <Route exact path='/uncorked/countries/:name' render={(props) => <CountryDetails country={this.props.countries.find(c => c.name === props.match.params.name) }/>} />
+              <Route exact path='/uncorked/countries/:id' component={CountryDetails}/>} />
               <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
               <Route exact path='/uncorked/cellar' component={WineIndex} />
               <Route exact path='/uncorked/wines/:id' component={WineDetails} />
