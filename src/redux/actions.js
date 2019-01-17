@@ -9,7 +9,6 @@ const fetchingCountries = () => {
   }
 }
 
-
 const fetchingCountry = (countryId) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/countries/${countryId}`)
@@ -27,9 +26,9 @@ const fetchedPageNums = (page) => {
   return { type: "FETCHED_PAGE", page }
 }
 
-const fetchingWines = (pageNum) => {
+const fetchingWines = (ext) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/wines?page=${pageNum}`)
+    fetch(`http://localhost:3001/wines${ext}`)
     .then(res => res.json())
     .then(data => {
       dispatch(fetchedWines(data.wines))
@@ -67,4 +66,19 @@ const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
 }
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine }
+const searchedWines = (wines) => {
+  return { type: "SEARCH_WINE", wines}
+}
+
+const searchingWines = (searchText) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/wines/${searchText}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      dispatch(searchedWines(data.wines))
+    }).catch((error) => console.log(error))
+  }
+}
+
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, searchingWines }

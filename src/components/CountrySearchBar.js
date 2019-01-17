@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { changeSearchText } from '../redux/actions'
 
-const SearchBar = (props) => {
+const CountrySearchBar = (props) => {
   return (
     <div >
       <input className="searchbar"
@@ -21,4 +21,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {onChange: changeSearchText})(SearchBar);
+export default connect(mapStateToProps, {onChange: changeSearchText})(CountrySearchBar);

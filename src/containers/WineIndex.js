@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchingWines } from '../redux/actions'
 import WineCard from '../components/WineCard'
-import SearchBar from '../components/SearchBar'
+import WineSearchBar from '../components/WineSearchBar'
 
 class WineIndex extends Component {
 
   handleNextClick = () => {
     let pageNum = this.props.currentPage.links.next.split("=")[1] - 1
     console.log(pageNum)
-    this.props.fetchingWines(pageNum + 1)
+    this.props.fetchingWines(`?page=${pageNum + 1}`)
   }
 
   handlePreviousClick = () => {
     let pageNum = this.props.currentPage.links.next.split("=")[1] - 1
-    console.log(pageNum)
-    this.props.fetchingWines(pageNum - 1)
+    console.log(this.props.currentPage.links)
+    this.props.fetchingWines(`?page=${pageNum - 1}`)
   }
 
   render(){
@@ -23,7 +23,7 @@ class WineIndex extends Component {
       <div>
         <div className="header">
           <div className="heading">Welcome to the Wine Cellar</div>
-          <SearchBar />
+          <WineSearchBar />
         </div>
         <div className="WineIndex">
           {this.props.wines ? this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
@@ -41,10 +41,9 @@ class WineIndex extends Component {
 
 const mapStateToProps = state => {
   return {
-    wines: state.wines.filter(
-      w => w.name.toLowerCase().includes(state.searchText.toLowerCase())
-    ),
-    currentPage: state.page.pagination
+    wines: state.wines,
+    currentPage: state.page.pagination,
+    searchedWines: state.searchedWines
   }
 }
 

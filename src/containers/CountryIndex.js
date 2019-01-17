@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CountryCard from '../components/CountryCard'
-import SearchBar from '../components/SearchBar'
+import CountrySearchBar from '../components/CountrySearchBar'
 
 const CountryIndex = (props) => {
 
@@ -9,7 +9,7 @@ const CountryIndex = (props) => {
       <div>
         <div className="header">
           <div className="heading">Explore a World of Wine</div>
-          <SearchBar />
+          <CountrySearchBar />
         </div>
         <div className="CountryIndex">
           {props.countries.map(country => <CountryCard key={country.id} country={country} /> )}

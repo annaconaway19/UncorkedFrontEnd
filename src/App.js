@@ -5,7 +5,6 @@ import { fetchingCountries, fetchingWines, fetchSingleWine } from './redux/actio
 import 'semantic-ui-css/semantic.min.css'
 import NavBar from './components/NavBar'
 import MapContainer from './containers/MapContainer'
-import CountryContainer from './containers/CountryContainer'
 import WineIndex from './containers/WineIndex'
 import WineDetails from './components/WineDetails'
 import CountryIndex from './containers/CountryIndex'
@@ -16,7 +15,7 @@ import './App.css';
 class App extends Component {
   componentDidMount(){
     this.props.fetchingCountries()
-    this.props.fetchingWines()
+    this.props.fetchingWines('?page=1')
   }
 
   render() {
@@ -42,7 +41,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     fetchingCountries: () => {dispatch(fetchingCountries())},
-    fetchingWines: () => {dispatch(fetchingWines())}
+    fetchingWines: (ext) => {dispatch(fetchingWines(ext))}
   }
 }
 
