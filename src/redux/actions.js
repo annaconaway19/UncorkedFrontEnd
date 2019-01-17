@@ -31,6 +31,7 @@ const fetchingWines = (ext) => {
     fetch(`http://localhost:3001/wines${ext}`)
     .then(res => res.json())
     .then(data => {
+      console.log(data.meta)
       dispatch(fetchedWines(data.wines))
       dispatch(fetchedPageNums(data.meta))
     })
@@ -43,9 +44,10 @@ const fetchedSingleWine = (wine) => {
 
 const fetchingSingleWine = (wineId) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/wines/${wineId}`)
+    fetch(`http://localhost:3001/wine/${wineId}`)
     .then(res => res.json())
     .then(data => {
+      console.log(data.wine)
       dispatch(fetchedSingleWine(data.wine))
     })
   }
