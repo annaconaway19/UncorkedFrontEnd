@@ -4,19 +4,14 @@ import { changeSearchText, fetchingWines } from '../redux/actions'
 
 class WineSearchBar extends React.Component {
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.fetchingWines(`/${this.props.value}?page=1`)
-  }
-
   render(){
     return (
       <div >
-        <form onSubmit={(e) => this.handleSubmit(e)}>
+        <form onSubmit={(e) => this.props.onSubmit(e)}>
           <input className="wine-search"
                 type="text"
                 placeholder='Search'
-                value={this.props.value}
+                value={this.props.searchText}
                 onChange={e => this.props.onChange(e.target.value)}
                 />
           <input className="submit-button" type="submit" value="Submit" />
@@ -28,7 +23,7 @@ class WineSearchBar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    value: state.searchText
+    searchText: state.searchText
   }
 }
 

@@ -68,19 +68,19 @@ const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
 }
 
-const searchedWines = (wines) => {
-  return { type: "SEARCH_WINE", wines}
-}
+// const searchedWines = (wines) => {
+//   return { type: "SEARCH_WINE", wines}
+// }
+//
+// // const searchingWines = (searchText) => {
+// //   return (dispatch) => {
+// //     fetch(`http://localhost:3001/wines/${searchText}`)
+// //     .then(res => res.json())
+// //     .then(data => {
+// //       console.log(data)
+// //       dispatch(searchedWines(data.wines))
+// //     }).catch((error) => console.log(error))
+// //   }
+// // }
 
-const searchingWines = (searchText) => {
-  return (dispatch) => {
-    fetch(`http://localhost:3001/wines/${searchText}`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      dispatch(searchedWines(data.wines))
-    }).catch((error) => console.log(error))
-  }
-}
-
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, searchingWines }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine }
