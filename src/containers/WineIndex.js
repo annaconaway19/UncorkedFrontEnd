@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchingWines } from '../redux/actions'
+import { fetchingWines, clearSearch } from '../redux/actions'
 import WineCard from '../components/WineCard'
 import WineSearchBar from '../components/WineSearchBar'
 
@@ -21,7 +21,7 @@ class WineIndex extends Component {
   handleClear = () => {
     this.setState({ searching: false })
     this.props.fetchingWines('?page=1')
-    
+    this.props.clearSearch()
   }
 
   handleNextClick = () => {
@@ -73,7 +73,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchingWines: (num) => {dispatch(fetchingWines(num))}
+    fetchingWines: (num) => {dispatch(fetchingWines(num))},
+    clearSearch: () => {dispatch(clearSearch())}
   }
 }
 

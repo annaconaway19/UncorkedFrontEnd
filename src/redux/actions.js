@@ -67,6 +67,10 @@ const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
 }
 
+const clearSearch = () => {
+  return { type: "CLEAR_SEARCH" }
+}
 
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine }
+
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch }

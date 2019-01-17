@@ -58,6 +58,8 @@ const searchTextReducer = (state = "", action) => {
   switch (action.type) {
     case "CHANGE_SEARCH_TEXT":
       return action.value;
+    case "CLEAR_SEARCH":
+      return ""
     default:
       return state
   }
@@ -71,6 +73,7 @@ const searchWineReducer = (state = [], action) => {
       return state
   }
 }
+
 
 const reducer = combineReducers({
   countries: fetchingCountriesReducer,
