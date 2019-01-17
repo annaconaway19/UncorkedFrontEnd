@@ -15,6 +15,7 @@ class WineSearchBar extends React.Component {
                 onChange={e => this.props.onChange(e.target.value)}
                 />
           <input className="submit-button" type="submit" value="Submit" />
+          <button className="clear-button" onClick={() => this.props.onClear()}>Clear Search</button>
         </form>
       </div>
     )

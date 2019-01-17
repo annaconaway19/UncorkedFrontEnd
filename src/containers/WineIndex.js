@@ -14,13 +14,17 @@ class WineIndex extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log('works')
     this.props.fetchingWines(`/${this.props.searchText}?page=1`)
-    this.setState({ searching: !this.state.searching })
+    this.setState({ searching: true })
+  }
+
+  handleClear = () => {
+    this.setState({ searching: false })
+    this.props.fetchingWines('?page=1')
+    
   }
 
   handleNextClick = () => {
-    console.log(this.props.currentPage.links)
     let pageNum = this.props.currentPage.links.next.split("=")[1] - 1
     if (this.state.searching) {
       this.props.fetchingWines(`/${this.props.searchText}?page=${pageNum + 1}`)
@@ -43,7 +47,7 @@ class WineIndex extends Component {
       <div>
         <div className="header">
           <div className="heading">Welcome to the Wine Cellar</div>
-          <WineSearchBar onSubmit={this.handleSubmit}/>
+          <WineSearchBar onSubmit={this.handleSubmit} onClear={this.handleClear}/>
         </div>
         <div className="WineIndex">
           {this.props.wines ? this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}

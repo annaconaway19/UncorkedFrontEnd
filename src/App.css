@@ -140,6 +140,12 @@ li {
   height: 30px;
 }
 
+.clear-button {
+  font-size: 14px;
+  height: 30px;
+  margin-left: 10px
+}
+
 .WineIndex {
   text-align: center;
   display: grid;

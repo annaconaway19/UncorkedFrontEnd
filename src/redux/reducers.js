@@ -79,9 +79,7 @@ const reducer = combineReducers({
   searchText: searchTextReducer,
   page: fetchingPageReducer,
   singleWine: fetchingSingleWineReducer,
-  country: fetchingCountryReducer,
-  searchedWines: searchWineReducer
-
+  country: fetchingCountryReducer
 })
 
 export default reducer;

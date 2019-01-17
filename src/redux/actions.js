@@ -31,7 +31,7 @@ const fetchingWines = (ext) => {
     fetch(`http://localhost:3001/wines${ext}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data.meta)
+      console.log(data)
       dispatch(fetchedWines(data.wines))
       dispatch(fetchedPageNums(data.meta))
     })
@@ -47,7 +47,6 @@ const fetchingSingleWine = (wineId) => {
     fetch(`http://localhost:3001/wine/${wineId}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data.wine)
       dispatch(fetchedSingleWine(data.wine))
     })
   }
@@ -68,19 +67,6 @@ const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
 }
 
-// const searchedWines = (wines) => {
-//   return { type: "SEARCH_WINE", wines}
-// }
-//
-// // const searchingWines = (searchText) => {
-// //   return (dispatch) => {
-// //     fetch(`http://localhost:3001/wines/${searchText}`)
-// //     .then(res => res.json())
-// //     .then(data => {
-// //       console.log(data)
-// //       dispatch(searchedWines(data.wines))
-// //     }).catch((error) => console.log(error))
-// //   }
-// // }
+
 
 export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine }
