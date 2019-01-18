@@ -32,8 +32,12 @@ const fetchingWines = (ext) => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      dispatch(fetchedWines(data.wines))
-      dispatch(fetchedPageNums(data.meta))
+      if (data.wines.length === 0) {
+        alert("Oops! No bottles in our cellar with that name! Please search again.")
+      } else {
+        dispatch(fetchedWines(data.wines))
+        dispatch(fetchedPageNums(data.meta))
+      }
     })
   }
 }
@@ -70,7 +74,5 @@ const changeSearchText = (value) => {
 const clearSearch = () => {
   return { type: "CLEAR_SEARCH" }
 }
-
-
 
 export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch }
