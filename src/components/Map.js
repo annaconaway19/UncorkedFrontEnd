@@ -14,8 +14,8 @@ class Map extends React.Component {
     viewport: { //map settings on first load
       width: "100%",
       height: "100vh",
-      latitude: 44.5739,
-      longitude: 7.7952,
+      latitude: 20.5739,
+      longitude: -6.7952,
       zoom: 2.0
     },
     popup: null
