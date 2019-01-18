@@ -7,6 +7,7 @@ const NavBar = () => {
       <Link to='/uncorked' className="logo">Uncorked</Link>
       <Link to='/uncorked/cellar' className="link">Wine Cellar</Link>
       <Link to='/uncorked/countries' className="link">Countries</Link>
+      <Link to='/uncorked/login' className="link">Login</Link>
     </div>
   )
 }

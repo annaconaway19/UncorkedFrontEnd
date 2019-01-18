@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { fetchingCountries, fetchingWines, fetchSingleWine } from './redux/actions'
+import { fetchingCountries, fetchingWines } from './redux/actions'
 import 'semantic-ui-css/semantic.min.css'
 import NavBar from './components/NavBar'
 import MapContainer from './containers/MapContainer'
@@ -9,6 +9,7 @@ import WineIndex from './containers/WineIndex'
 import WineDetails from './components/WineDetails'
 import CountryIndex from './containers/CountryIndex'
 import CountryDetails from './components/CountryDetails'
+import Login from './components/Login'
 import './App.css';
 
 
@@ -30,6 +31,7 @@ class App extends Component {
               <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
               <Route exact path='/uncorked/cellar' component={WineIndex} />
               <Route exact path='/uncorked/wines/:id' component={WineDetails} />
+              <Route exact path='/uncorked/login' component={Login} />
             </Switch>
           </Fragment>
         </BrowserRouter>

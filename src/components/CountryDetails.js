@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
-import WineCard from './WineCard'
 import { fetchingCountry } from '../redux/actions'
 
 class CountryDetails extends React.Component {

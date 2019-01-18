@@ -75,4 +75,30 @@ const clearSearch = () => {
   return { type: "CLEAR_SEARCH" }
 }
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch }
+const loggingIn = () => {
+  console.log('attempting to log in')
+  return { type: "LOGGED_IN" }
+  // return (dispatch) => {
+  //   fetch(`http://localhost:3001/login`, {
+  //        method:"POST",
+  //        headers: {
+  //          "Content-type":"application/json",
+  //          "Accept":"application/json"
+  //        },
+  //        body: JSON.stringify({
+  //          username: this.state.username,
+  //          password: this.state.password
+  //        })
+  //      }).then(res => res.json())
+  //      .then(data => {
+  //        if(data.error){
+  //          alert('Incorrect username or password')
+  //        }else{
+  //          console.log(data)
+  //          this.props.setCurrentReader(data.reader_info)
+  //          localStorage.setItem('token', data.token)
+  //        }
+  //      })
+  }
+
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn }

@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { Icon } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import MapboxGeocoder from 'mapbox-gl-geocoder';

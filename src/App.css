@@ -2,10 +2,36 @@ h2, h3, h4, p {
   font-family: 'News Cycle', sans-serif;
 }
 
+
 li {
   font-size: 17px;
 
 }
+/* LOGIN */
+  .column {
+    width: 30% !important;
+    margin-top: 5% !important;
+
+    padding: 18px 21px 31px 21px;
+
+    background-color: rgba(120, 7, 56, 0.87);
+    border-radius: 15px;
+  }
+
+  .ui.fluid.button {
+    color: #780738;
+  }
+
+  .ui.button {
+    color: #780738
+  }
+  
+  .login-page {
+    background-image: url('https://images.unsplash.com/photo-1491924778227-f225b115dd5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+    background-size: 100%;
+    color: white;
+  }
+
 /* NAV BAR STYLING  */
 
 .nav {
