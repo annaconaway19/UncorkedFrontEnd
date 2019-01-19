@@ -17,6 +17,7 @@ class Login extends React.Component {
 //
     handleLogin = () => {
       let user = this.state
+      console.log(user)
       this.props.loggingIn(user)
     }
 

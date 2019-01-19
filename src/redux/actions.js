@@ -1,6 +1,6 @@
 const fetchingCountries = () => {
   return (dispatch) => {
-    fetch('http://localhost:3001/countries')
+    fetch('http://localhost:3001/api/v1/countries')
     .then(res => res.json())
     .then(data => {
       // console.log(data)
@@ -11,7 +11,7 @@ const fetchingCountries = () => {
 
 const fetchingCountry = (countryId) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/countries/${countryId}`)
+    fetch(`http://localhost:3001/api/v1/countries/${countryId}`)
     .then(res => res.json())
     .then(data => {
       dispatch({ type: "FETCHED_COUNTRY", country: data})
@@ -28,7 +28,7 @@ const fetchedPageNums = (page) => {
 
 const fetchingWines = (ext) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/wines${ext}`)
+    fetch(`http://localhost:3001/api/v1/wines${ext}`)
     .then(res => res.json())
     .then(data => {
       console.log(data)
@@ -48,7 +48,7 @@ const fetchedSingleWine = (wine) => {
 
 const fetchingSingleWine = (wineId) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/wine/${wineId}`)
+    fetch(`http://localhost:3001/api/v1/wine/${wineId}`)
     .then(res => res.json())
     .then(data => {
       dispatch(fetchedSingleWine(data.wine))
@@ -61,7 +61,7 @@ const fetchedNotes = (notes) => {
 }
 const fetchingTastingNotes = () => {
   return (dispatch) => {
-    fetch('http://localhost:3001/tastingnotes')
+    fetch('http://localhost:3001/api/v1/tastingnotes')
     .then(res => res.json())
     .then(data => dispatch(fetchedNotes(data.tasting_notes)))
   }
@@ -77,26 +77,28 @@ const clearSearch = () => {
 
 const loggingIn = (userObj) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/login`, {
+    fetch(`http://localhost:3001/api/v1/login`, {
        method:"POST",
        headers: {
          "Content-type":"application/json",
-         "Accept":"application/json"
        },
-       body: JSON.stringify({userObj})
+       body: JSON.stringify(userObj)
        }).then(res => res.json())
         .then(data => {
           console.log(data)
-         if(data.error) {
-           alert('Incorrect username or password')
-         } else {
-           dispatch(loggedIn(data))
-         }
-       })}
+          // if(data.error){
+          //   alert('Incorrect username and/or password')
+          // } else {
+          //   console.log('Login Successful')
+          //   dispatch(loggedIn(data.user_info))
+          //   localStorage.setItem('token', data.token)
+          // }
+       }
+     )}
      }
 
-  const loggedIn = (data) => {
-    localStorage.setItem('token', data.token)
+  const loggedIn = (data) =>  {
+    return { type:"LOGGED_IN", data }
   }
 
 export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn }
