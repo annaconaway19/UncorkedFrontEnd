@@ -65,7 +65,7 @@ const searchTextReducer = (state = "", action) => {
   }
 }
 
-const loginReducer = (state = [], action) => {
+const loginReducer = (state = null, action) => {
   switch (action.type) {
     case 'LOGGED_IN':
       return action.user

@@ -86,19 +86,19 @@ const loggingIn = (userObj) => {
        }).then(res => res.json())
         .then(data => {
           console.log(data)
-          // if(data.error){
-          //   alert('Incorrect username and/or password')
-          // } else {
-          //   console.log('Login Successful')
-          //   dispatch(loggedIn(data.user_info))
-          //   localStorage.setItem('token', data.token)
-          // }
+          if(data.error){
+            alert('Incorrect username and/or password')
+          } else {
+            console.log('Login Successful')
+            dispatch(loggedIn(data.user_info))
+            localStorage.setItem('token', data.token)
+          }
        }
      )}
      }
 
-  const loggedIn = (data) =>  {
-    return { type:"LOGGED_IN", data }
+  const loggedIn = (user) =>  {
+    return { type:"LOGGED_IN", user }
   }
 
 export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn }
