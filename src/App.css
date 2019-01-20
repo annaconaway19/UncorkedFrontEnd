@@ -5,17 +5,19 @@ h2, h3, h4, p {
 
 li {
   font-size: 17px;
-
 }
+
 /* LOGIN */
+
   .column {
-    width: 30% !important;
-    margin-top: 5% !important;
-
+    width: 40% !important;
+    margin-top: 10% !important;
     padding: 18px 21px 31px 21px;
-
     background-color: rgba(120, 7, 56, 0.87);
     border-radius: 15px;
+  }
+  .ui.center.aligned.header {
+    color: white;
   }
 
   .ui.fluid.button {
@@ -25,12 +27,21 @@ li {
   .ui.button {
     color: #780738
   }
-  
+
   .login-page {
     background-image: url('https://images.unsplash.com/photo-1491924778227-f225b115dd5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: white;
   }
+
+
+/* SIGN UP */
+
+.subheader {
+  margin-top: -1%;
+}
+
 
 /* NAV BAR STYLING  */
 
@@ -38,6 +49,8 @@ li {
   background-color: #B398A4;
   overflow: hidden;
   font-family: 'Cedarville Cursive', cursive;
+  height: 68px;
+  padding-top: 2px;
 }
 
 .nav>.logo{
@@ -69,9 +82,9 @@ li {
   color: white;
 }
 
-/*************/
 
-/* CountryIndex */
+
+/* COUNTRY INDEX */
 
 .header {
   text-align: center;
@@ -122,9 +135,9 @@ li {
 
 }
 
-/*************/
 
-/* Country Show Page */
+/* COUNTRY SHOW PAGE */
+
 .CountryDetails {
   background-image: url('https://images.unsplash.com/photo-1464638681273-0962e9b53566?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
   padding: 30px;
@@ -149,9 +162,7 @@ li {
 }
 
 
-/*************/
-
-/* WineIndex */
+/* WINE INDEX */
 
 .wine-search {
   font-size: 14px;
@@ -207,9 +218,8 @@ button {
   width: 119%;
 
 }
-/* ************ */
 
-/* Wine Show Page */
+/* WINE SHOW PAGE */
 
 .WineDetails {
   background-image: url('https://images.unsplash.com/photo-1543418219-44e30b057fea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80');

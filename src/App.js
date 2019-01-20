@@ -10,6 +10,7 @@ import WineDetails from './components/WineDetails'
 import CountryIndex from './containers/CountryIndex'
 import CountryDetails from './components/CountryDetails'
 import Login from './components/Login'
+import Signup from './components/Signup'
 import UserProfile from './containers/UserProfile'
 import './App.css';
 
@@ -25,23 +26,19 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <Fragment>
-            <NavBar />
+            <NavBar loggedIn={this.props.user}/>
             <Switch>
               <Route exact path="/uncorked" component={MapContainer} />
               <Route exact path='/uncorked/countries/:id' component={CountryDetails}/>} />
               <Route exact path='/uncorked/countries' render={() => <CountryIndex />} />
               <Route exact path='/uncorked/cellar' component={WineIndex} />
               <Route exact path='/uncorked/wines/:id' component={WineDetails} />
-              <Route exact path='/uncorked/login' render={() => {
-                if (localStorage.getItem('token')) {
-                  return <Redirect to='/uncorked/profile' />
-                } else { return <Login /> } }} />
-              <Route exact path='/uncorked/profile' render={() => {
-                if (localStorage.getItem('token')) {
-                  return <UserProfile />
-                } else {
-                  return <Redirect to='/uncorked/login' />
-                } }} />
+              <Route exact path='/uncorked/login' render={() => (
+                  this.props.currentUser ? <Redirect to='/uncorked/profile' /> : <Login /> )} />
+              <Route exact path='/uncorked/profile' render={() => (
+                this.props.currentUser ? <UserProfile /> : <Redirect to='/uncorked/login' />
+                )}  />
+              <Route exact path='/uncorked/signup' component={Signup} />
             </Switch>
           </Fragment>
         </BrowserRouter>
@@ -61,7 +58,7 @@ const mapStateToProps = state => {
   return {
     wines: state.wines,
     countries: state.countries,
-    user: state.user
+    currentUser: state.currentUser
   }
 }
 

@@ -82,7 +82,7 @@ const reducer = combineReducers({
   page: fetchingPageReducer,
   singleWine: fetchingSingleWineReducer,
   country: fetchingCountryReducer,
-  user: loginReducer
+  currentUser: loginReducer
 })
 
 export default reducer;

@@ -6,7 +6,7 @@ class NavBar extends React.Component {
   render(){
     return (
       <div className="nav">
-      {this.props.user ? (
+      {this.props.currentUser ? (
         <React.Fragment>
             <Link to='/uncorked' className="logo">Uncorked</Link>
             <Link to='/uncorked/cellar' className="link">Wine Cellar</Link>
@@ -29,7 +29,7 @@ class NavBar extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    currentUser: state.currentUser
   }
 }
 
