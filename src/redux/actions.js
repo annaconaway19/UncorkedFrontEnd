@@ -1,3 +1,52 @@
+
+const loggingIn = (userObj) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/v1/login`, {
+       method:"POST",
+       headers: {
+         "Content-type":"application/json",
+       },
+       body: JSON.stringify(userObj)
+       }).then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if(data.error){
+            alert('Incorrect username and/or password')
+          } else {
+            console.log('Login Successful')
+            dispatch(loggedIn(data.user_info))
+            localStorage.setItem('token', data.token)
+          }
+       }
+     )}
+     }
+
+  const loggedIn = (user) =>  {
+    return { type:"LOGGED_IN", user }
+  }
+
+const signingUp = (userObj) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/v1/users`, {
+       method:"POST",
+       headers: {
+         "Content-type":"application/json",
+       },
+       body: JSON.stringify(userObj)
+       }).then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if(data.error){
+            alert(data.error)
+          } else {
+            console.log('Sign Up Successful')
+            dispatch(loggedIn(data.user_info))
+            localStorage.setItem('token', data.token)
+          }
+       }
+     )}
+}
+
 const fetchingCountries = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/countries')
@@ -75,30 +124,5 @@ const clearSearch = () => {
   return { type: "CLEAR_SEARCH" }
 }
 
-const loggingIn = (userObj) => {
-  return (dispatch) => {
-    fetch(`http://localhost:3001/api/v1/login`, {
-       method:"POST",
-       headers: {
-         "Content-type":"application/json",
-       },
-       body: JSON.stringify(userObj)
-       }).then(res => res.json())
-        .then(data => {
-          console.log(data)
-          if(data.error){
-            alert('Incorrect username and/or password')
-          } else {
-            console.log('Login Successful')
-            dispatch(loggedIn(data.user_info))
-            localStorage.setItem('token', data.token)
-          }
-       }
-     )}
-     }
 
-  const loggedIn = (user) =>  {
-    return { type:"LOGGED_IN", user }
-  }
-
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp }

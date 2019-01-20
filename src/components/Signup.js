@@ -2,8 +2,25 @@ import React from 'react'
 import { Button, Form, Grid, Header, Icon, Message, Segment } from 'semantic-ui-react'
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { signingUp } from '../redux/actions'
 
 class Signup extends React.Component {
+  state = {
+    username: "",
+    password: "",
+    passwordConfirmation: ""
+  };
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+
+  handleSignUp = () => {
+    let user = this.state
+    console.log(user)
+    this.props.signingUp(user)
+  }
 
 render() {
  return (
@@ -21,6 +38,8 @@ render() {
                fluid icon='user'
                iconPosition='left'
                placeholder='Username'
+               onChange={this.handleChange}
+               value={this.state.username}
              />
              <Form.Input
                fluid
@@ -29,16 +48,20 @@ render() {
                iconPosition='left'
                placeholder='Password'
                type='password'
+               onChange={this.handleChange}
+               value={this.state.password}
              />
              <Form.Input
                fluid
-               name='password'
+               name='passwordConfirmation'
                icon='lock'
                iconPosition='left'
                placeholder='Confirm Password'
                type='password'
+               onChange={this.handleChange}
+               value={this.state.passwordConfirmation}
              />
-             <Button  fluid size='large'>
+             <Button fluid size='large' onClick={this.handleSignUp}>
                Sign Up
              </Button>
            </Segment>
@@ -51,4 +74,11 @@ render() {
  )
 }}
 
-export default Signup;
+const mapDispatchToProps = dispatch => {
+  return {
+    signingUp: (user) => {dispatch(signingUp(user))}
+  }
+}
+
+
+export default connect(null, mapDispatchToProps)(Signup);
