@@ -21,8 +21,14 @@ const loggingIn = (userObj) => {
      )}
      }
 
-  const loggedIn = (user) =>  {
-    return { type:"LOGGED_IN", user }
+const loggingOut = () => {
+  return (dispatch) => {
+    dispatch({ type: "LOGGED_OUT" })
+  }
+}
+
+const loggedIn = (user) =>  {
+  return { type:"LOGGED_IN", user }
   }
 
 const signingUp = (userObj) => {
@@ -52,7 +58,6 @@ const fetchingCountries = () => {
     fetch('http://localhost:3001/api/v1/countries')
     .then(res => res.json())
     .then(data => {
-      // console.log(data)
       dispatch({type: "FETCHED_COUNTRIES", countries: data.countries })
     })
   }
@@ -125,4 +130,4 @@ const clearSearch = () => {
 }
 
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut }

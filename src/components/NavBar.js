@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { loggingOut} from '../redux/actions'
 import { Link, withRouter } from 'react-router-dom'
 
 class NavBar extends React.Component {
+
+  handleLogout = () => {
+    console.log('logging out.. ')
+    this.props.loggingOut()
+  }
+
   render(){
     return (
       <div className="nav">
@@ -12,7 +19,7 @@ class NavBar extends React.Component {
             <Link to='/uncorked/cellar' className="link">Wine Cellar</Link>
             <Link to='/uncorked/countries' className="link">Countries</Link>
             <Link to='/uncorked/profile' className="link">Profile</Link>
-            <Link to='/uncorked/login' className="link">Logout</Link>
+            <Link to='/uncorked/login' onClick={this.handleLogout} className="link">Logout</Link>
           </React.Fragment>
         ) : (
           <React.Fragment>
@@ -33,5 +40,10 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    loggingOut: () => {dispatch(loggingOut())}
+  }
+}
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

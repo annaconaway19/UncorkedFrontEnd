@@ -39,6 +39,7 @@ class App extends Component {
                 this.props.currentUser ? <UserProfile /> : <Redirect to='/uncorked/login' />
                 )}  />
               <Route exact path='/uncorked/signup' component={Signup} />
+              <Route path='*' component={MapContainer} />
             </Switch>
           </Fragment>
         </BrowserRouter>
