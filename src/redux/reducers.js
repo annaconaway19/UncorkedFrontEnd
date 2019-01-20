@@ -76,6 +76,15 @@ const loginReducer = (state = null, action) => {
   }
 }
 
+const errorReducer = (state = '', action) => {
+  switch (action.type) {
+    case "SIGN_UP_ERRORS":
+      return action.errors
+    default:
+      return state
+  }
+}
+
 const reducer = combineReducers({
   countries: fetchingCountriesReducer,
   wines: fetchingWineReducer,
@@ -84,7 +93,8 @@ const reducer = combineReducers({
   page: fetchingPageReducer,
   singleWine: fetchingSingleWineReducer,
   country: fetchingCountryReducer,
-  currentUser: loginReducer
+  currentUser: loginReducer,
+  errors: errorReducer
 })
 
 export default reducer;

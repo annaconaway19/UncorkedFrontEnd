@@ -61,6 +61,7 @@ render() {
                onChange={this.handleChange}
                value={this.state.passwordConfirmation}
              />
+             {this.props.errors ? <div>{this.props.errors}</div> : null}
              <Button fluid size='large' onClick={this.handleSignUp}>
                Sign Up
              </Button>

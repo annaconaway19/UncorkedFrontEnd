@@ -38,7 +38,8 @@ class App extends Component {
               <Route exact path='/uncorked/profile' render={() => (
                 this.props.currentUser ? <UserProfile /> : <Redirect to='/uncorked/login' />
                 )}  />
-              <Route exact path='/uncorked/signup' component={Signup} />
+              <Route exact path='/uncorked/signup' render={() => (
+                  this.props.currentUser ? <Redirect to='/uncorked/profile' /> : <Signup /> )} />
               <Route path='*' component={MapContainer} />
             </Switch>
           </Fragment>

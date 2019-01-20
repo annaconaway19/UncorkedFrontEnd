@@ -42,16 +42,23 @@ const signingUp = (userObj) => {
        }).then(res => res.json())
         .then(data => {
           console.log(data)
-          if(data.error){
-            alert(data.error)
+          if (data.error) {
+            dispatch(showErrors((data.error)))
           } else {
             console.log('Sign Up Successful')
-            dispatch(loggedIn(data.user_info))
-            localStorage.setItem('token', data.token)
+            dispatch(signedUp(data.user_info))
           }
-       }
-     )}
+       })}
+     }
+
+const showErrors = (errors) => {
+  return { type: "SIGN_UP_ERRORS", errors }
 }
+
+ const signedUp = (user) =>  {
+   localStorage.setItem('token', user.token)
+   return { type:"LOGGED_IN", user }
+  }
 
 const fetchingCountries = () => {
   return (dispatch) => {
