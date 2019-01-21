@@ -161,7 +161,23 @@ const addingToWishlist = (userId, wineId) => {
        }).then(res => res.json())
         .then(data => console.log(data))
       }
-}
+    }
+
+  const addingToTastedlist = (userId, wineId) => {
+    return (dispatch) => {
+      fetch(`http://localhost:3001/api/v1/tasted_wines`, {
+         method:"POST",
+         headers: {
+           "Content-type":"application/json",
+         },
+         body: JSON.stringify({
+           user_id: userId,
+           wine_id: wineId
+         })
+         }).then(res => res.json())
+          .then(data => console.log(data))
+        }
+      }
 
 const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
@@ -172,4 +188,4 @@ const clearSearch = () => {
 }
 
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines, addingToWishlist }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines, addingToWishlist, addingToTastedlist }
