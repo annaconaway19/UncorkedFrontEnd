@@ -10,7 +10,7 @@ class WineSearchBar extends React.Component {
         <form onSubmit={(e) => this.props.onSubmit(e)}>
           <input className="wine-search"
                 type="text"
-                placeholder='Search'
+                placeholder='Search Your Favorite Bottle'
                 value={this.props.searchText}
                 onChange={e => this.props.onChange(e.target.value)}
                 />

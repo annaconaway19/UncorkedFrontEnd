@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class Wishlist extends React.Component {
 
@@ -7,7 +8,13 @@ class Wishlist extends React.Component {
     return(
       <div>
         <h3>Wine Wish List</h3>
-        <ul>{this.props.wishlist.map(el => <li key={el.wine.id}>{el.wine.name}</li>)}</ul>
+        {this.props.wishlist.map(el =>
+          <ul key={el.wine.id}>
+            <Link to={`/uncorked/wines/${el.wine.id}`} >
+              <li>{el.wine.name}</li>
+            </Link>
+          </ul>
+        )}
       </div>
     )
   }

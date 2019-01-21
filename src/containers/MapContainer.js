@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Map from '../components/Map'
 import {connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 class MapContainer extends Component {
@@ -19,6 +20,7 @@ class MapContainer extends Component {
   render(){
     return(
       <div>
+        <div className="welcome">Explore the world's wine-producing regions, highlighted on the map, click through our wine resources, or <Link to='/uncorked/signup'>sign up</Link> and keep track of your favorite bottles!</div>
         <Map codes={this.getCodes}/>
       </div>
     )

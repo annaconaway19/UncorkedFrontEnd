@@ -85,7 +85,14 @@ li {
   color: white;
 }
 
-
+.welcome {
+  font-size: 21px;
+  padding-top: 1.15%;
+  padding-bottom: 1.2%;
+  text-align: center;
+  font-family: 'News Cycle';
+  font-style: italic;
+}
 
 /* COUNTRY INDEX */
 
@@ -155,7 +162,7 @@ li {
 
 .imagebio {
   display: grid;
-  grid-template-columns: 20% 60%;
+  grid-template-columns: 25% 56%;
   margin-left: 20%;
 }
 
@@ -164,6 +171,12 @@ li {
   text-shadow: 1px 1px black;
 }
 
+.winelist {
+  margin: 3% 0% 0px 32%;
+  text-shadow: 1px 1px black;
+  text-decoration: none;
+
+}
 
 /* WINE INDEX */
 
@@ -181,9 +194,11 @@ li {
 }
 
 .clear-button {
-  font-size: 14px;
-  height: 30px;
-  margin-left: 10px
+  font-size: 16px;
+  height: 31px;
+  padding: 1px;
+  width: 8%;
+  margin: 1% 1% 0% 1%;
 }
 
 .WineIndex {
@@ -208,8 +223,20 @@ li {
 button {
   width: 14%;
   padding: 11px;
-  font-size: 14px;
-  margin: 0 0 43px 39px;
+  font-size: 16px;
+  margin: 6px 0 43px 39px;
+  background-color: #B398A4;
+  color: white;
+  font-family: 'News Cycle';
+  font-weight: bold;
+}
+
+.submit-button {
+  background-color: #B398A4;
+  color: white;
+  font-family: 'News Cycle';
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .wine-card {
