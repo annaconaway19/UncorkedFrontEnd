@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { fetchingTastingNotes, fetchingSingleWine } from '../redux/actions'
+import { fetchingTastingNotes, fetchingSingleWine, addingToWishlist } from '../redux/actions'
 
 class WineDetails extends Component {
 
@@ -15,6 +15,12 @@ class WineDetails extends Component {
       notes.push(note.name)
     })
     return notes[Math.floor(Math.random() * notes.length)]
+  }
+
+  addToWishlist = () => {
+    let userId = this.props.currentUser.id
+    let wineId = this.props.wine.id
+    this.props.addingToWishlist(userId, wineId)
   }
 
   render() {
@@ -47,6 +53,14 @@ class WineDetails extends Component {
 
           </React.Fragment>
         ) : ("loading...")}
+        {this.props.currentUser ? (
+          <React.Fragment>
+            <div className="buttons">
+              <button onClick={this.addToWishlist}>Add To Wine Wishlist</button>
+              <button>Been There, Drank That</button>
+            </div>
+          </React.Fragment>
+        ) : null }
         <div className="spacing"></div>
       </div>
 
@@ -57,14 +71,16 @@ class WineDetails extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     fetchingTastingNotes: () => {dispatch(fetchingTastingNotes())},
-    fetchingSingleWine: (wineId) => {dispatch(fetchingSingleWine(wineId))}
+    fetchingSingleWine: (wineId) => {dispatch(fetchingSingleWine(wineId))},
+    addingToWishlist: (userId, wineId) => {dispatch(addingToWishlist(userId, wineId))}
   }
 }
 
 const mapStateToProps = state => {
   return {
     tastingNotes: state.tastingNotes,
-    wine: state.singleWine
+    wine: state.singleWine,
+    currentUser: state.currentUser
   }
 }
 
