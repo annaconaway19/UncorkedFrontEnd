@@ -16,8 +16,8 @@ class UserProfile extends React.Component {
     return(
       <div>
         <h2>Welcome to Uncorked {this.props.currentUser.username}</h2>
-        <Wishlist wishlist={this.props.wishlist}/>
-        <TastedList tastedList={this.props.tastedList}/>
+        <Wishlist />
+        <TastedList />
       </div>
     )
   }

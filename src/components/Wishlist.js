@@ -7,7 +7,7 @@ class Wishlist extends React.Component {
     return(
       <div>
         <h3>Wine Wish List</h3>
-
+        <ul>{this.props.wishlist.map(el => <li key={el.wine.id}>{el.wine.name}</li>)}</ul>
       </div>
     )
   }
@@ -15,7 +15,8 @@ class Wishlist extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    wishlist: state.wishlist
   }
 }
 
