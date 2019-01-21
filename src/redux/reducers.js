@@ -85,6 +85,24 @@ const errorReducer = (state = '', action) => {
   }
 }
 
+const wishlistReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'FETCHED_WISHLIST':
+      return action.wishlist
+    default:
+      return state
+  }
+}
+
+const tastedListReducer = (state = [], action) => {
+  switch (action.type) {
+    case "FETCHED_TASTEDLIST":
+      return action.tastedList
+    default:
+      return state
+  }
+}
+
 const reducer = combineReducers({
   countries: fetchingCountriesReducer,
   wines: fetchingWineReducer,
@@ -94,7 +112,9 @@ const reducer = combineReducers({
   singleWine: fetchingSingleWineReducer,
   country: fetchingCountryReducer,
   currentUser: loginReducer,
-  errors: errorReducer
+  errors: errorReducer,
+  wishlist: wishlistReducer,
+  tastedList: tastedListReducer
 })
 
 export default reducer;

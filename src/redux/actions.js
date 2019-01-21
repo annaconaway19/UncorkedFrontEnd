@@ -1,3 +1,4 @@
+// USER ACTIONS ********** //
 
 const loggingIn = (userObj) => {
   return (dispatch) => {
@@ -60,6 +61,20 @@ const showErrors = (errors) => {
    return { type:"LOGGED_IN", user }
   }
 
+const fetchingUserWines = (userId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/v1/users/${userId}`)
+    .then(res => res.json())
+    .then(data => {
+      dispatch({type: "FETCHED_WISHLIST", wishlist: data.user.wine_wishes })
+      dispatch({type: "FETCHED_TASTEDLIST", tastedList: data.user.tasted_wines })
+
+    })
+  }
+}
+
+// COUNTRY ACTIONS ********** //
+
 const fetchingCountries = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/countries')
@@ -79,6 +94,9 @@ const fetchingCountry = (countryId) => {
     })
   }
 }
+
+// WINE ACTIONS ********** //
+
 const fetchedWines = (wines) => {
     return {type: "FETCHED_WINES", wines }
 }
@@ -120,6 +138,7 @@ const fetchingSingleWine = (wineId) => {
 const fetchedNotes = (notes) => {
   return {type: 'FETCHED_NOTES', notes}
 }
+
 const fetchingTastingNotes = () => {
   return (dispatch) => {
     fetch('http://localhost:3001/api/v1/tastingnotes')
@@ -137,4 +156,4 @@ const clearSearch = () => {
 }
 
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines }
