@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 import { fetchingTastingNotes, fetchingSingleWine, addingToWishlist, addingToTastedlist } from '../redux/actions'
 
 class WineDetails extends Component {
@@ -22,7 +23,7 @@ class WineDetails extends Component {
     let wineId = this.props.wine.id
     let wishlistArr = this.props.wishlist.map(data => data.wine_id)
     if (!wishlistArr.includes(wineId)) {
-      this.props.addingToWishlist(userId, wineId)
+      this.props.addingToWishlist(userId, wineId);
     } else {
     alert("You've already added this wine to your Wishlist!")
   }
@@ -32,7 +33,6 @@ class WineDetails extends Component {
     let userId = this.props.currentUser.id
     let wineId = this.props.wine.id
     let tastedArr = this.props.tastedList.map(data => data.wine_id)
-    console.log(tastedArr)
     if (!tastedArr.includes(wineId)) {
       this.props.addingToTastedlist(userId, wineId)
     } else {

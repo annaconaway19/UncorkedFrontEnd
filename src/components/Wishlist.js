@@ -12,8 +12,15 @@ class Wishlist extends React.Component {
   moveLists = (wish) => {
     let wineId = wish.wine.id
     let userId = this.props.currentUser.id
-    this.props.addingToTastedlist(userId, wineId)
+    let tastedArr = this.props.tastedList.map(data => data.wine_id)
+    console.log(tastedArr)
+    if (!tastedArr.includes(wineId)) {
+      this.props.deletingFromWishlist(wish.id)
+      this.props.addingToTastedlist(userId, wineId)
+    } else {
+      alert("You must really love this one! Already on your list.")
   }
+}
 
   render(){
     return(
@@ -21,9 +28,7 @@ class Wishlist extends React.Component {
         <h3>Wine Wish List</h3>
         {this.props.wishlist.map(el =>
           <ul key={el.id}>
-            <Link to={`/uncorked/wines/${el.wine.id}`} >
-              <li>{el.wine.name}</li>
-            </Link>
+            <li><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link> - {el.wine.price}</li>
             <button className='move-button' onClick={() => this.handleDelete(el.id)}>Remove Wine</button>
             <button className='move-button' onClick={() => this.moveLists(el)}>Move to Tasted List</button>
           </ul>
@@ -36,7 +41,8 @@ class Wishlist extends React.Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
-    wishlist: state.wishlist
+    wishlist: state.wishlist,
+    tastedList: state.tastedList
   }
 }
 
