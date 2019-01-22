@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Icon, Message, Segment } from 'semantic-ui-react'
-import { withRouter, Link } from 'react-router-dom'
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { signingUp } from '../redux/actions'
 

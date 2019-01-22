@@ -86,8 +86,6 @@ const errorReducer = (state = '', action) => {
 }
 
 const wishlistReducer = (state = [], action) => {
-  // console.log(newState)
-
   switch (action.type) {
     case 'FETCHED_WISHLIST':
       return action.wishlist

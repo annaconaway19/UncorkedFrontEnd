@@ -182,7 +182,7 @@ const addingToWishlist = (userId, wineId) => {
 const deletingFromWishlist = (wishId) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/api/v1/wine_wishes/${wishId}`, {
-      method: "DELETE"
+      method: "DELETE",
     }).then(res => res.json())
     .then(wish => dispatch(deletedWish(wish)))
   }
