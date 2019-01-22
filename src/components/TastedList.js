@@ -9,13 +9,18 @@ class TastedList extends React.Component {
     return(
       <div>
       <h3>Tried It, Loved It</h3>
-      {this.props.tastedList.map(el =>
-        <ul key={el.wine.id}>
-          <Link to={`/uncorked/wines/${el.wine.id}`} >
-            <li>{el.wine.name}</li>
-          </Link>
-        </ul>
-      )}
+      {(this.props.tastedList.length !== 0) ? (
+        <React.Fragment>
+        {this.props.tastedList.map(el =>
+          <ul key={el.wine.id}>
+            <Link to={`/uncorked/wines/${el.wine.id}`} >
+              <li>{el.wine.name}</li>
+            </Link>
+          </ul>
+        )}
+        </React.Fragment>
+      ) : ("No saved wines yet!")
+    }
       </div>
     )
   }

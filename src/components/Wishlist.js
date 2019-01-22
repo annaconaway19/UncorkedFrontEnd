@@ -18,7 +18,7 @@ class Wishlist extends React.Component {
       this.props.deletingFromWishlist(wish.id)
       this.props.addingToTastedlist(userId, wineId)
     } else {
-      alert("You must really love this one! Already on your list.")
+      alert("You must really love this one! It's already on your list.")
   }
 }
 
@@ -26,13 +26,18 @@ class Wishlist extends React.Component {
     return(
       <div>
         <h3>Wine Wish List</h3>
-        {this.props.wishlist.map(el =>
-          <ul key={el.id}>
-            <li><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link> - {el.wine.price}</li>
-            <button className='move-button' onClick={() => this.handleDelete(el.id)}>Remove Wine</button>
-            <button className='move-button' onClick={() => this.moveLists(el)}>Move to Tasted List</button>
-          </ul>
-        )}
+        {(this.props.wishlist.length !== 0) ? (
+          <React.Fragment>
+            {this.props.wishlist.map(el =>
+            <ul key={el.id}>
+              <li><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link> - {el.wine.price}</li>
+              <button className='move-button' onClick={() => this.handleDelete(el.id)}>Remove Wine</button>
+              <button className='move-button' onClick={() => this.moveLists(el)}>Move to Tasted List</button>
+            </ul>
+          )}
+          </React.Fragment>
+        ) : ("No saved wines yet!")
+      }
       </div>
     )
   }

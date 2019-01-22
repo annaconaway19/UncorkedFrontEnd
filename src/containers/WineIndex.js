@@ -53,10 +53,15 @@ class WineIndex extends Component {
           {this.props.wines ? this.props.wines.map(wine => <WineCard key={wine.id} wine={wine} /> ) : null}
         </div>
 
-        <div className="buttons">
-          <button onClick={() => this.handlePreviousClick()}>Previous Page</button>
-          <button onClick={() => this.handleNextClick()}>Next Page</button>
-        </div>
+        {(this.props.wines.length >= 20) ? (
+          <React.Fragment>
+          <div className="buttons">
+            <button onClick={() => this.handlePreviousClick()}>Previous Page</button>
+            <button onClick={() => this.handleNextClick()}>Next Page</button>
+          </div>
+          </React.Fragment>
+        ) : (null) }
+
       </div>
 
     )
