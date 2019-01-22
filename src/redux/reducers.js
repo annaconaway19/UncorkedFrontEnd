@@ -86,9 +86,13 @@ const errorReducer = (state = '', action) => {
 }
 
 const wishlistReducer = (state = [], action) => {
+  // console.log(newState)
+
   switch (action.type) {
     case 'FETCHED_WISHLIST':
       return action.wishlist
+    case "DELETE_WISH":
+      return state.filter(wish => wish.id !== action.wish.wine_wish.id)
     default:
       return state
   }

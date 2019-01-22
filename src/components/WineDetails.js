@@ -87,7 +87,9 @@ const mapStateToProps = state => {
   return {
     tastingNotes: state.tastingNotes,
     wine: state.singleWine,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    wishlist: state.wishlist,
+    tastedList: state.tastedList
   }
 }
 

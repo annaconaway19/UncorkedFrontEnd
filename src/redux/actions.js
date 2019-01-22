@@ -179,6 +179,20 @@ const addingToWishlist = (userId, wineId) => {
         }
       }
 
+const deletingFromWishlist = (wishId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/api/v1/wine_wishes/${wishId}`, {
+      method: "DELETE"
+    }).then(res => res.json())
+    .then(wish => dispatch(deletedWish(wish)))
+  }
+}
+
+const deletedWish = (wish) => {
+  return { type: "DELETE_WISH", wish }
+}
+
+
 const changeSearchText = (value) => {
   return { type: "CHANGE_SEARCH_TEXT", value }
 }
@@ -188,4 +202,4 @@ const clearSearch = () => {
 }
 
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines, addingToWishlist, addingToTastedlist }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines, addingToWishlist, addingToTastedlist, deletingFromWishlist }

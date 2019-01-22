@@ -19,7 +19,11 @@ class Signup extends React.Component {
   handleSignUp = () => {
     let user = this.state
     console.log(user)
-    this.props.signingUp(user)
+    if (this.state.password === this.state.passwordConfirmation) {
+      this.props.signingUp(user)
+    } else {
+      alert("Passwords must match!")
+    }
   }
 
 render() {
