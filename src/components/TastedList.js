@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
 class TastedList extends React.Component {
+
+
   render(){
     return(
       <div>
@@ -25,5 +27,6 @@ const mapStateToProps = state => {
     tastedList: state.tastedList
   }
 }
+
 
 export default connect(mapStateToProps)(TastedList);

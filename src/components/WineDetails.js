@@ -20,13 +20,24 @@ class WineDetails extends Component {
   addToWishlist = () => {
     let userId = this.props.currentUser.id
     let wineId = this.props.wine.id
-    this.props.addingToWishlist(userId, wineId)
+    let wishlistArr = this.props.wishlist.map(data => data.wine_id)
+    if (!wishlistArr.includes(wineId)) {
+      this.props.addingToWishlist(userId, wineId)
+    } else {
+    alert("You've already added this wine to your Wishlist!")
   }
+}
 
   addToTastedList = () => {
     let userId = this.props.currentUser.id
     let wineId = this.props.wine.id
-    this.props.addingToTastedlist(userId, wineId)
+    let tastedArr = this.props.tastedList.map(data => data.wine_id)
+    console.log(tastedArr)
+    if (!tastedArr.includes(wineId)) {
+      this.props.addingToTastedlist(userId, wineId)
+    } else {
+      alert("You must really love this one! Already on your list.")
+    }
   }
 
   render() {
