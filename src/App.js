@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { fetchingCountries, fetchingWines } from './redux/actions'
+import { fetchingCountries, fetchingWines, signedUp } from './redux/actions'
 import 'semantic-ui-css/semantic.min.css'
 import NavBar from './components/NavBar'
 import MapContainer from './containers/MapContainer'
@@ -52,7 +52,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     fetchingCountries: () => {dispatch(fetchingCountries())},
-    fetchingWines: (ext) => {dispatch(fetchingWines(ext))}
+    fetchingWines: (ext) => {dispatch(fetchingWines(ext))},
   }
 }
 

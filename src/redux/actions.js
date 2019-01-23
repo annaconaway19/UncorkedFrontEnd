@@ -22,6 +22,7 @@ const loggingIn = (userObj) => {
      )}
      }
 
+
 const loggingOut = () => {
   return (dispatch) => {
     dispatch({ type: "LOGGED_OUT" })
@@ -207,4 +208,4 @@ const clearSearch = () => {
 }
 
 
-export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines, addingToWishlist, addingToTastedlist, deletingFromWishlist }
+export { fetchingCountries, fetchingCountry, fetchingWines, fetchingTastingNotes, changeSearchText, fetchingSingleWine, clearSearch, loggingIn, signingUp, loggingOut, fetchingUserWines, addingToWishlist, addingToTastedlist, deletingFromWishlist, signedUp }

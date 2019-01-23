@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { addingToTastedlist, deletingFromWishlist } from '../redux/actions'
+import { addingToTastedlist, deletingFromWishlist, loggingIn } from '../redux/actions'
 
 class Wishlist extends React.Component {
 
