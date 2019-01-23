@@ -65,8 +65,10 @@ class WineDetails extends Component {
               <div className="wine-info">
                 <h2>Varietal: {this.props.wine.varietal.name}</h2>
                 <h2>Country of Origin: <Link to={`/uncorked/countries/${this.props.wine.country.id}`}>{this.props.wine.country.name}</Link></h2>
-                <h2>Points: {this.props.wine.points}</h2>
-                <h2>Price: {this.props.wine.price}</h2>
+                <div className="price-points">
+                  <h2 className="pp">Points: {this.props.wine.points}</h2>
+                  <h2 className="pp">Price: {this.props.wine.price ? this.props.wine.price : 'No Price Listed'}</h2>
+                </div>
               </div>
 
           </React.Fragment>

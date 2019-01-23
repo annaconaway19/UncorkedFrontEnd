@@ -256,8 +256,9 @@ button {
 
 .WineDetails {
   background-image: url('https://images.unsplash.com/photo-1543418219-44e30b057fea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80');
-  padding: 30px;
-
+  padding: 60px 23px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .headline {
@@ -282,4 +283,15 @@ button {
 .wine-info {
   text-align: center;
   font-size: 16px;
+}
+
+.price-points {
+  display: grid;
+  grid-template-columns: 10% 10%;
+  justify-content: center;
+}
+
+.pp {
+  justify-content: center;
+  margin: 0;
 }

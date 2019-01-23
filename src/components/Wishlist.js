@@ -31,7 +31,7 @@ class Wishlist extends React.Component {
           <React.Fragment>
             {this.props.wishlist.map(el =>
             <ul key={el.id}>
-              <li><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link> - {el.wine.price}</li>
+              <li><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link> - {el.wine.price ? el.wine.price : 'No Price Listed'}</li>
               <button className='move-button' onClick={() => this.handleDelete(el.id)}>Remove Wine</button>
               <button className='move-button' onClick={() => this.moveLists(el)}>Move to Tasted List</button>
             </ul>
