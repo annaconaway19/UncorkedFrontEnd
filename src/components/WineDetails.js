@@ -77,8 +77,8 @@ class WineDetails extends Component {
         {this.props.currentUser ? (
           <React.Fragment>
             <div className="buttons">
-              <button onClick={this.addToWishlist}>Add To Wine Wishlist</button>
-              <button onClick={this.addToTastedList}>Been There, Drank That</button>
+              <button className="wine-button" onClick={this.addToWishlist}>Add To Wine Wishlist</button>
+              <button className="wine-button" onClick={this.addToTastedList}>Been There, Drank That</button>
             </div>
           </React.Fragment>
         ) : null }

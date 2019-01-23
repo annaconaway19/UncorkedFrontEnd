@@ -48,7 +48,7 @@ class CountryDetails extends React.Component {
                   </Link>
                 </ul>
               )}
-              <button onClick={() => this.goBack()}>Previous Wines</button>
+              <button className='prev-button' onClick={() => this.goBack()}>Previous Wines</button>
               <button onClick={() => this.moreWine()}>See More</button>
               </div>
           </React.Fragment>

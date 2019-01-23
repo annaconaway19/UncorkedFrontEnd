@@ -75,7 +75,7 @@ h1 {
 }
 
 .move-button {
-    width: 36%;
+    width: 40%;
     margin: 4% 1% 2%;
 }
 
@@ -111,9 +111,11 @@ h1 {
 
 .list{
   position: absolute;
-  top: 20%;
+  top: 25%;
   width: 37%;
-  padding: 5% 3% 3% 3%;
+  padding: 0% 3% 3% 3%;
+  overflow: auto;
+  height: 725px;
 }
 
 /* NAV BAR STYLING  */
@@ -249,7 +251,7 @@ h1 {
 }
 
 .winelist {
-  margin: 3% 0% 0px 35.5%;
+  margin: 3% 0% 0px 33.5%;
   text-shadow: 1px 1px black;
   text-decoration: none;
   font-family: 'News Cycle';
@@ -258,8 +260,12 @@ h1 {
 
 .wine-link {
   text-shadow: 1px 1px black, 3px 5px 58px black, 8px 8px 67px black;
-  font-size: 20px;
+  font-size: 22px;
   padding: 2px;
+}
+
+.prev-button {
+  width: 17%;
 }
 
 /* WINE INDEX */
@@ -378,4 +384,8 @@ button {
 .pp {
   justify-content: center;
   margin: 0;
+}
+
+.wine-button {
+
 }
