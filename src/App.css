@@ -7,6 +7,7 @@ li {
   font-size: 17px;
 }
 
+
 /* LOGIN */
 
   .column {
@@ -123,6 +124,9 @@ li {
   width: 300px;
   height: 300px;
   padding: 15px;
+  border-style: double;
+  border-color: #B398A4;
+  border-width: thick;
 }
 
 .card:hover {
@@ -178,10 +182,10 @@ li {
   margin: 3% 0% 0px 32%;
   text-shadow: 1px 1px black;
   text-decoration: none;
-
 }
 
 /* WINE INDEX */
+
 
 .wine-search {
   font-size: 14px;
@@ -244,12 +248,15 @@ button {
 
 .wine-card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
   transition: 0.3s;
   border-radius: 5px;
   grid-column: auto;
   padding: 15px;
   width: 119%;
-
+  border-style: double;
+  border-color: #B398A4;
+  border-width: thick;
 }
 
 /* WINE SHOW PAGE */

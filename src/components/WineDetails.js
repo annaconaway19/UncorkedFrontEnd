@@ -62,6 +62,7 @@ class WineDetails extends Component {
                 </div>
               </div>
 
+
               <div className="wine-info">
                 <h2>Varietal: {this.props.wine.varietal.name}</h2>
                 <h2>Country of Origin: <Link to={`/uncorked/countries/${this.props.wine.country.id}`}>{this.props.wine.country.name}</Link></h2>

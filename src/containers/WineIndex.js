@@ -44,7 +44,7 @@ class WineIndex extends Component {
 
   render(){
     return (
-      <div>
+      <div className="wine-index">
         <div className="header">
           <div className="heading">Welcome to the Wine Cellar</div>
           <WineSearchBar onSubmit={this.handleSubmit} onClear={this.handleClear}/>

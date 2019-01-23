@@ -43,7 +43,7 @@ class CountryDetails extends React.Component {
               <h1>Wines from {this.props.country.name}:</h1>
               {this.props.country.wines.slice(this.state.currentIndex, this.state.currentIndex + 5).map(w =>
                 <ul key={w.id}>
-                  <Link to={`/uncorked/wines/${w.id}`} >
+                  <Link to={`/uncorked/wines/${w.id}`} style={{color: 'rgb(120, 7, 56)'}}>
                     <li>{w.name}</li>
                   </Link>
                 </ul>
