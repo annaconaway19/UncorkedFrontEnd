@@ -26,16 +26,23 @@ class Wishlist extends React.Component {
   render(){
     return(
       <div>
-        <h3>Wine Wish List</h3>
+      <div className="grid-bk"></div>
+
         {(this.props.wishlist.length !== 0) ? (
           <React.Fragment>
-            {this.props.wishlist.map(el =>
-            <ul key={el.id}>
-              <li><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link> - {el.wine.price ? el.wine.price : 'No Price Listed'}</li>
-              <button className='move-button' onClick={() => this.handleDelete(el.id)}>Remove Wine</button>
-              <button className='move-button' onClick={() => this.moveLists(el)}>Move to Tasted List</button>
-            </ul>
+          <div className='list'>
+            <h2 className="headline">Wine Wish List</h2>
+              {this.props.wishlist.map(el =>
+              <ul key={el.id}>
+                <li className='wishlist-item'><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link > - {el.wine.price ? el.wine.price : 'No Price Listed'}</li>
+                <div className="list-buttons">
+                  <button className='move-button' onClick={() => this.handleDelete(el.id)}>Remove Wine</button>
+                  <button className='move-button' onClick={() => this.moveLists(el)}>Move to Tasted List</button>
+                </div>
+              </ul>
           )}
+          </div>
+
           </React.Fragment>
         ) : ("No saved wines yet!")
       }

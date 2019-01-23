@@ -14,10 +14,12 @@ class UserProfile extends React.Component {
 
   render(){
     return(
-      <div>
-        <h2>Welcome to Uncorked, {this.props.currentUser.username}!</h2>
-        <Wishlist />
-        <TastedList />
+      <div className="profile">
+        <div className="welcome-user">Welcome to Uncorked, {this.props.currentUser.username}</div>
+        <div className="user-lists">
+          <Wishlist />
+          <TastedList />
+        </div>
       </div>
     )
   }
