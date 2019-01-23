@@ -10,13 +10,14 @@ class Wishlist extends React.Component {
   }
 
   moveLists = (wish) => {
+    let wishId = wish.id
     let wineId = wish.wine.id
     let userId = this.props.currentUser.id
     let tastedArr = this.props.tastedList.map(data => data.wine_id)
-    console.log(tastedArr)
+    console.log(wish.id)
     if (!tastedArr.includes(wineId)) {
-      this.props.deletingFromWishlist(wish.id)
       this.props.addingToTastedlist(userId, wineId)
+      this.props.deletingFromWishlist(wishId)
     } else {
       alert("You must really love this one! It's already on your list.")
   }

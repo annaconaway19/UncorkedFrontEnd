@@ -164,7 +164,7 @@ const addingToWishlist = (userId, wineId) => {
     }
 
   const addingToTastedlist = (userId, wineId) => {
-    return (dispatch) => {
+    return (dispatch, wishId) => {
       fetch(`http://localhost:3001/api/v1/tasted_wines`, {
          method:"POST",
          headers: {
@@ -175,10 +175,11 @@ const addingToWishlist = (userId, wineId) => {
            wine_id: wineId
          })
          }).then(res => res.json())
-          .then(data => console.log(data))
+          .then(wine => dispatch(addedToTastedList(wine.tasted_wine)))
         }
       }
 
+// dispatch(deletingFromWishlist(data.tasted_wine.id)
 const deletingFromWishlist = (wishId) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/api/v1/wine_wishes/${wishId}`, {
@@ -186,6 +187,10 @@ const deletingFromWishlist = (wishId) => {
     }).then(res => res.json())
     .then(wish => dispatch(deletedWish(wish)))
   }
+}
+
+const addedToTastedList = (wine) => {
+  return { type: "ADD_TO_TASTED", wine }
 }
 
 const deletedWish = (wish) => {

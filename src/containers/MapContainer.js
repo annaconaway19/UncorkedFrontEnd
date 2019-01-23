@@ -20,7 +20,7 @@ class MapContainer extends Component {
   render(){
     return(
       <div>
-        <div className="welcome">Explore the world's wine-producing regions, highlighted on the map, click through our wine resources, or <Link to='/uncorked/signup'>sign up</Link> and keep track of your favorite bottles!</div>
+        {!this.props.currentUser ? <div className="welcome">Explore the world's wine-producing regions, highlighted on the map, click through our wine resources, or <Link to='/uncorked/signup'>sign up</Link> and keep track of your favorite bottles!</div> : null}
         <Map codes={this.getCodes}/>
       </div>
     )
@@ -29,7 +29,8 @@ class MapContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    countries: state.countries
+    countries: state.countries,
+    currentUser: state.currentUser
   }
 }
 

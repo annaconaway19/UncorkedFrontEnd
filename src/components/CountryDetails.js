@@ -12,7 +12,6 @@ class CountryDetails extends React.Component {
   }
 
   componentDidMount(){
-    console.log(this.props)
     this.props.fetchingCountry(this.props.match.params.id)
   }
 

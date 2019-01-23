@@ -91,6 +91,8 @@ const wishlistReducer = (state = [], action) => {
       return action.wishlist
     case "DELETE_WISH":
       return state.filter(wish => wish.id !== action.wish.wine_wish.id)
+    case "ADD_TO_TASTED":
+      return state.filter(wish => wish.wine.id !== action.wine.wine.id)
     default:
       return state
   }
@@ -100,6 +102,10 @@ const tastedListReducer = (state = [], action) => {
   switch (action.type) {
     case "FETCHED_TASTEDLIST":
       return action.tastedList
+    case "ADD_TO_TASTED":
+      return [...state,
+         action.wine
+      ]
     default:
       return state
   }

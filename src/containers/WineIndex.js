@@ -61,7 +61,6 @@ class WineIndex extends Component {
           </div>
           </React.Fragment>
         ) : (null) }
-
       </div>
 
     )
