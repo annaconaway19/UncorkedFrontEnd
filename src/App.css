@@ -386,6 +386,10 @@ button {
   background-repeat: no-repeat;
 }
 
+.notes-list {
+  font-size: 20px;
+  line-height: 1.15;
+}
 .headline {
   text-align: center;
   margin-top: 45px;

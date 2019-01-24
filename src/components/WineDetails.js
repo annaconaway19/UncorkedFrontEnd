@@ -53,7 +53,7 @@ class WineDetails extends Component {
                 <img className="wine-image" alt="wine" src="https://images.unsplash.com/photo-1474722883778-792e7990302f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
                 <div className="tasting-notes">
                   <h2>Tasting Notes</h2>
-                  <ul>
+                  <ul className='notes-list'>
                       <li>{this.randomNote()}</li>
                       <li>{this.randomNote()}</li>
                       <li>{this.randomNote()}</li>
