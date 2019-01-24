@@ -65,6 +65,15 @@ h1 {
   margin: 2% 0 0 10%;
 }
 
+.list-headline {
+  text-align: center;
+  margin-top: 45px;
+  font-size: 30px;
+  color: #780738;
+  margin-left: 5%;
+
+}
+
 .welcome-user {
   font-size: 30px;
   text-align: center;
@@ -234,6 +243,26 @@ h1 {
   padding: 152px;
 }
 
+.loading-spacing {
+  height: 500px
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #780738; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  text-align: center;
+  margin: 10% 0 0 45%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .imagebio {
   display: grid;
   grid-template-columns: 25% 60%;
@@ -247,7 +276,9 @@ h1 {
 
 .wines-from {
     text-align: left;
-    padding-left: 8%;
+    padding-left: 10%;
+    text-shadow: 1px 1px black, 3px 5px 58px black, 8px 8px 67px black;
+    font-size: 30px;
 }
 
 .winelist {
@@ -260,12 +291,16 @@ h1 {
 
 .wine-link {
   text-shadow: 1px 1px black, 3px 5px 58px black, 8px 8px 67px black;
-  font-size: 22px;
+  font-size: 26px;
   padding: 2px;
+  line-height: 1.25;
+  max-width: 70%;
+
 }
 
 .prev-button {
   width: 17%;
+
 }
 
 /* WINE INDEX */

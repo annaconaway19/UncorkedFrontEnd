@@ -8,6 +8,7 @@ class WineDetails extends Component {
   componentDidMount(){
     this.props.fetchingTastingNotes()
     this.props.fetchingSingleWine(this.props.match.params.id)
+    window.scrollTo(0,0);
   }
 
   randomNote = () => {
@@ -73,7 +74,13 @@ class WineDetails extends Component {
               </div>
 
           </React.Fragment>
-        ) : ("loading...")}
+        ) : <React.Fragment>
+              <div className="loader"></div>
+              <div className="loading-spacing"></div>
+            </React.Fragment>}
+
+
+      }
         {this.props.currentUser ? (
           <React.Fragment>
             <div className="buttons">

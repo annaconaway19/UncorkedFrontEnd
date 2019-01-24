@@ -21,6 +21,8 @@ class App extends Component {
     this.props.fetchingWines('?page=1')
   }
 
+
+
   render() {
     return (
       <div>

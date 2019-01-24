@@ -12,7 +12,8 @@ class CountryDetails extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchingCountry(this.props.match.params.id)
+    this.props.fetchingCountry(this.props.match.params.id);
+    window.scrollTo(0,0);
   }
 
   moreWine = () => {
@@ -53,7 +54,10 @@ class CountryDetails extends React.Component {
               </div>
           </React.Fragment>
 
-        ) : ("loading...") }
+        ) : <React.Fragment>
+              <div className="loader"></div>
+              <div className="loading-spacing"></div>
+            </React.Fragment>}
         <div className="country-spacing"></div>
       </div>
     )

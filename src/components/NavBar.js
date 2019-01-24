@@ -19,7 +19,7 @@ class NavBar extends React.Component {
             <Link to='/uncorked/cellar' className="link">Wine Cellar</Link>
             <Link to='/uncorked/countries' className="link">Countries</Link>
             <Link to='/uncorked/profile' className="link">Profile</Link>
-            <Link to='/uncorked/login' onClick={this.handleLogout} className="link">Logout</Link>
+            <Link to='/uncorked' onClick={this.handleLogout} className="link">Logout</Link>
           </React.Fragment>
         ) : (
           <React.Fragment>

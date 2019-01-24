@@ -31,7 +31,7 @@ class Wishlist extends React.Component {
         {(this.props.wishlist.length !== 0) ? (
           <React.Fragment>
           <div className='list'>
-            <h2 className="headline">Wine Wish List</h2>
+            <h2 className="list-headline">Wine Wish List</h2>
               {this.props.wishlist.map(el =>
               <ul key={el.id}>
                 <li className='wishlist-item'><Link to={`/uncorked/wines/${el.wine.id}`}>{el.wine.name}</Link > - {el.wine.price ? el.wine.price : 'No Price Listed'}</li>

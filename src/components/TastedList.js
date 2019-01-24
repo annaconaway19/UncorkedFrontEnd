@@ -12,7 +12,7 @@ class TastedList extends React.Component {
         {(this.props.tastedList.length !== 0) ? (
           <React.Fragment>
           <div className='list'>
-          <h2 className="headline">Tried It, Loved It</h2>
+          <h2 className="list-headline">Tried It, Loved It</h2>
           {this.props.tastedList.map(el =>
             <ul key={el.wine.id}>
               <Link to={`/uncorked/wines/${el.wine.id}`} >
