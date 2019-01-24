@@ -23,7 +23,15 @@ class TastedList extends React.Component {
           </div>
           </React.Fragment>
 
-        ) : ("No saved wines yet!")
+        ) : (
+           <React.Fragment>
+            <div className='grid-bk'></div>
+             <div className='list'>
+             <h2 className="list-headline">Tried It, Loved It</h2>
+             <h3 style={{'font-size': '30px', "text-align": "center", "margin-left": "6%"}}>No saved wines yet!</h3>
+             </div>
+            </React.Fragment>
+          )
       }
       </div>
     )
