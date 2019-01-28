@@ -11,12 +11,12 @@ class Map extends React.Component {
   constructor(props){
   super(props)
   this.state = {
-    viewport: { //map settings on first load to tv
+    viewport: { //map settings on first load
       width: "100%",
       height: "100vh",
-      latitude: 12.5739,
-      longitude: 0,
-      zoom: 1.5
+      latitude: 20.5739,
+      longitude: -6.7952,
+      zoom: 2.0
     },
     popup: null
   }}
